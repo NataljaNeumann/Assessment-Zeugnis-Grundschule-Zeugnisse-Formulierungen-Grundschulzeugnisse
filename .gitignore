@@ -1,0 +1,10 @@
+School-Report/obj/**
+School-Report/bin/Release/**
+School-Report/bin/Debug/**
+School-Report/bin/*.zip
+**/.vs/**
+Backup/**
+*.csv
+*.exe
+*.user
+*.suo
