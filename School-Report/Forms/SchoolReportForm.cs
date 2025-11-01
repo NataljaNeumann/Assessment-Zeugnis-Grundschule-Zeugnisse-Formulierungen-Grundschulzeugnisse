@@ -19,6 +19,8 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 using School_Report.Forms;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.XPath;
@@ -444,7 +446,8 @@ namespace School_Report
             if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("en"))
             {
                 AdaptTextToGenderAndName_English(tbxToAdapt);
-            } else
+            }
+            else
             if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("es"))
             {
                 AdaptTextToGenderAndName_Spanish(tbxToAdapt);
@@ -453,7 +456,8 @@ namespace School_Report
             if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("pt"))
             {
                 AdaptTextToGenderAndName_Portuguese(tbxToAdapt);
-            } else
+            }
+            else
             if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("it"))
             {
                 AdaptTextToGenderAndName_Italian(tbxToAdapt);
@@ -1160,7 +1164,7 @@ namespace School_Report
                     .Replace(" Имя ", " " + strNameToUse + " ")
                     .Replace(" Имени ", " " + DeclineRussianName(strNameToUse, true, RussianCase.Genitive) + " ")
                     .Replace(" ИмениД ", " " + DeclineRussianName(strNameToUse, true, RussianCase.Dative) + " ")
-                    .Replace(" ИмениВ ", " " + DeclineRussianName(strNameToUse, true, RussianCase.Accusative) + " ");                    
+                    .Replace(" ИмениВ ", " " + DeclineRussianName(strNameToUse, true, RussianCase.Accusative) + " ");
             }
             else
             {
@@ -1174,7 +1178,14 @@ namespace School_Report
             tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
         }
 
-        private void m_btnNextBestCommunity_Click(object sender, EventArgs e)
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user selects the next best assessment (to the left)
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnNextBestCommunity_Click(object oSender, EventArgs oArgs)
         {
             if (m_nCurrentValueIndex > 0)
             {
@@ -1183,7 +1194,14 @@ namespace School_Report
             }
         }
 
-        private void m_btnNextWorseCommunity_Click(object sender, EventArgs e)
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user selects the next worst assessment (to the right)
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnNextWorseCommunity_Click(object oSender, EventArgs oArgs)
         {
             string[] astrPoints = m_oTexts[m_strCurrentSection].Keys.ToArray();
             string strCurrentPoint = astrPoints[m_nCurrentPoint];
@@ -1198,7 +1216,14 @@ namespace School_Report
 
         }
 
-        private void m_btnAddCurrentText_Click(object sender, EventArgs e)
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user clicks on "add" button for adding current evaluation
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnAddCurrentText_Click(object oSender, EventArgs oArgs)
         {
             string strNewText;
             if (!string.IsNullOrEmpty(m_tbxTextCommunity.Text))
@@ -1218,14 +1243,30 @@ namespace School_Report
             }
         }
 
-        private void m_chkAddName_CheckedChanged(object sender, EventArgs e)
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when the checkbox "add name" is clicked
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnAddName_CheckedChanged(object oSender, EventArgs oArgs)
         {
             ShowCurrentPoint();
         }
 
-        private void m_rbMale_CheckedChanged(object sender, EventArgs e)
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when the gender radio box changes
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnGenderRadioBox_CheckedChanged(object oSender, EventArgs oArgs)
         {
-            RadioButton? oRb = sender as RadioButton;
+            RadioButton? oRb = oSender as RadioButton;
             if (oRb != null)
             {
                 if (oRb.Checked)
@@ -1235,7 +1276,14 @@ namespace School_Report
             }
         }
 
-        private void m_tbxName_TextChanged(object sender, EventArgs e)
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when name changes
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnName_TextChanged(object oSender, EventArgs oArgs)
         {
             if (m_chkAddName.Checked)
             {
@@ -1243,7 +1291,14 @@ namespace School_Report
             }
         }
 
-        private void m_ctlUpDownPoints_ValueChanged(object sender, EventArgs e)
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when up/down control for current point changes
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnUpDownPoints_ValueChanged(object oSender, EventArgs oArgs)
         {
             m_nCurrentPoint = Convert.ToInt32(m_ctlUpDownPoints.Value);
             // TODO: choose a probable assessment value
@@ -1251,7 +1306,14 @@ namespace School_Report
             ShowCurrentPoint();
         }
 
-        private void m_tbxCurrentTextCommunity_Click(object sender, EventArgs e)
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user clicks inside the current assessment text
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnCurrentAssessmentText_Click(object oSender, EventArgs oArgs)
         {
             if (m_oTexts.Count == 0 || !m_oTexts.ContainsKey(m_strCurrentSection))
                 return;
@@ -1288,7 +1350,61 @@ namespace School_Report
             }
         }
 
-        private void m_btnCreateNextBetterCommunity_Click(object sender, EventArgs e)
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user wants to see the information about the app
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnAboutToolStripMenuItem_Click(object oSender, EventArgs oArgs)
+        {
+            using (var oAbout = new About())
+            {
+                oAbout.ShowDialog(this);
+            }
+        }
+
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user wants to see the license
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnLicenseToolStripMenuItem_Click(object oSender, EventArgs oArgs)
+        {
+            string strUrl = "https://www.gnu.org/licenses/gpl-2.0.html";
+            try
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    Process.Start(new ProcessStartInfo(strUrl) { UseShellExecute = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", strUrl);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", strUrl);
+                }
+            }
+            catch (Exception oEx)
+            {
+                MessageBox.Show("Could not open browser: " + oEx.Message);
+            }
+        }
+
+
+        private void OnCreateNextBetterCommunity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnCreateNextWorseCommunity_Click(object sender, EventArgs e)
         {
 
         }

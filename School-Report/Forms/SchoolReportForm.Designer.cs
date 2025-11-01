@@ -70,7 +70,7 @@
             m_tbxName.Name = "m_tbxName";
             m_tbxName.Size = new Size(210, 27);
             m_tbxName.TabIndex = 0;
-            m_tbxName.TextChanged += m_tbxName_TextChanged;
+            m_tbxName.TextChanged += OnName_TextChanged;
             // 
             // m_lblName
             // 
@@ -107,7 +107,7 @@
             m_rbDiverse.TabStop = true;
             m_rbDiverse.Text = "Diverse";
             m_rbDiverse.UseVisualStyleBackColor = true;
-            m_rbDiverse.CheckedChanged += m_rbMale_CheckedChanged;
+            m_rbDiverse.CheckedChanged += OnGenderRadioBox_CheckedChanged;
             // 
             // m_rbFemale
             // 
@@ -119,7 +119,7 @@
             m_rbFemale.TabStop = true;
             m_rbFemale.Text = "Female";
             m_rbFemale.UseVisualStyleBackColor = true;
-            m_rbFemale.CheckedChanged += m_rbMale_CheckedChanged;
+            m_rbFemale.CheckedChanged += OnGenderRadioBox_CheckedChanged;
             // 
             // m_rbMale
             // 
@@ -132,7 +132,7 @@
             m_rbMale.TabStop = true;
             m_rbMale.Text = "Male";
             m_rbMale.UseVisualStyleBackColor = true;
-            m_rbMale.CheckedChanged += m_rbMale_CheckedChanged;
+            m_rbMale.CheckedChanged += OnGenderRadioBox_CheckedChanged;
             // 
             // m_ctlReportParts
             // 
@@ -164,7 +164,7 @@
             // 
             m_ctlTabPageWorkHabits.Location = new Point(4, 30);
             m_ctlTabPageWorkHabits.Name = "m_ctlTabPageWorkHabits";
-            m_ctlTabPageWorkHabits.Size = new Size(994, 6);
+            m_ctlTabPageWorkHabits.Size = new Size(1020, 6);
             m_ctlTabPageWorkHabits.TabIndex = 2;
             m_ctlTabPageWorkHabits.Text = "Work Habits";
             m_ctlTabPageWorkHabits.UseVisualStyleBackColor = true;
@@ -174,7 +174,7 @@
             m_ctlTTabPageLearning.Location = new Point(4, 30);
             m_ctlTTabPageLearning.Name = "m_ctlTTabPageLearning";
             m_ctlTTabPageLearning.Padding = new Padding(3);
-            m_ctlTTabPageLearning.Size = new Size(994, 6);
+            m_ctlTTabPageLearning.Size = new Size(1020, 6);
             m_ctlTTabPageLearning.TabIndex = 1;
             m_ctlTTabPageLearning.Text = "Learning";
             m_ctlTTabPageLearning.UseVisualStyleBackColor = true;
@@ -187,6 +187,7 @@
             m_btnCreateNextWorseCommunity.TabIndex = 8;
             m_btnCreateNextWorseCommunity.Text = "+";
             m_btnCreateNextWorseCommunity.UseVisualStyleBackColor = true;
+            m_btnCreateNextWorseCommunity.Click += OnCreateNextWorseCommunity_Click;
             // 
             // m_btnCreateNextBetterCommunity
             // 
@@ -196,7 +197,7 @@
             m_btnCreateNextBetterCommunity.TabIndex = 7;
             m_btnCreateNextBetterCommunity.Text = "+";
             m_btnCreateNextBetterCommunity.UseVisualStyleBackColor = true;
-            m_btnCreateNextBetterCommunity.Click += m_btnCreateNextBetterCommunity_Click;
+            m_btnCreateNextBetterCommunity.Click += OnCreateNextBetterCommunity_Click;
             // 
             // m_btnNextWorseCommunity
             // 
@@ -206,7 +207,7 @@
             m_btnNextWorseCommunity.TabIndex = 6;
             m_btnNextWorseCommunity.Text = ">";
             m_btnNextWorseCommunity.UseVisualStyleBackColor = true;
-            m_btnNextWorseCommunity.Click += m_btnNextWorseCommunity_Click;
+            m_btnNextWorseCommunity.Click += OnNextWorseCommunity_Click;
             // 
             // m_btnNextBestCommunity
             // 
@@ -216,7 +217,7 @@
             m_btnNextBestCommunity.TabIndex = 5;
             m_btnNextBestCommunity.Text = "<";
             m_btnNextBestCommunity.UseVisualStyleBackColor = true;
-            m_btnNextBestCommunity.Click += m_btnNextBestCommunity_Click;
+            m_btnNextBestCommunity.Click += OnNextBestCommunity_Click;
             // 
             // m_tbxNextBestTextCommunity
             // 
@@ -250,7 +251,7 @@
             m_tbxCurrentTextCommunity.ReadOnly = true;
             m_tbxCurrentTextCommunity.Size = new Size(288, 192);
             m_tbxCurrentTextCommunity.TabIndex = 2;
-            m_tbxCurrentTextCommunity.Click += m_tbxCurrentTextCommunity_Click;
+            m_tbxCurrentTextCommunity.Click += OnCurrentAssessmentText_Click;
             // 
             // m_lblTextCommunity
             // 
@@ -302,7 +303,7 @@
             m_btnAddCurrentText.TabIndex = 11;
             m_btnAddCurrentText.Text = "+";
             m_btnAddCurrentText.UseVisualStyleBackColor = true;
-            m_btnAddCurrentText.Click += m_btnAddCurrentText_Click;
+            m_btnAddCurrentText.Click += OnAddCurrentText_Click;
             // 
             // m_ctlUpDownPoints
             // 
@@ -313,7 +314,7 @@
             m_ctlUpDownPoints.Size = new Size(41, 29);
             m_ctlUpDownPoints.TabIndex = 12;
             m_ctlUpDownPoints.UpDownAlign = LeftRightAlignment.Left;
-            m_ctlUpDownPoints.ValueChanged += m_ctlUpDownPoints_ValueChanged;
+            m_ctlUpDownPoints.ValueChanged += OnUpDownPoints_ValueChanged;
             // 
             // m_chkAddName
             // 
@@ -324,7 +325,7 @@
             m_chkAddName.TabIndex = 13;
             m_chkAddName.Text = "Add name";
             m_chkAddName.UseVisualStyleBackColor = true;
-            m_chkAddName.CheckedChanged += m_chkAddName_CheckedChanged;
+            m_chkAddName.CheckedChanged += OnAddName_CheckedChanged;
             // 
             // m_oMenuStrip
             // 
@@ -349,6 +350,7 @@
             m_oAboutToolStripMenuItem.Name = "m_oAboutToolStripMenuItem";
             m_oAboutToolStripMenuItem.Size = new Size(160, 24);
             m_oAboutToolStripMenuItem.Text = "About School Report";
+            m_oAboutToolStripMenuItem.Click += OnAboutToolStripMenuItem_Click;
             // 
             // m_oLicenseToolStripMenuItem
             // 
@@ -356,6 +358,7 @@
             m_oLicenseToolStripMenuItem.Name = "m_oLicenseToolStripMenuItem";
             m_oLicenseToolStripMenuItem.Size = new Size(120, 24);
             m_oLicenseToolStripMenuItem.Text = "License (GPL 2)";
+            m_oLicenseToolStripMenuItem.Click += OnLicenseToolStripMenuItem_Click;
             // 
             // SchoolReportForm
             // 
