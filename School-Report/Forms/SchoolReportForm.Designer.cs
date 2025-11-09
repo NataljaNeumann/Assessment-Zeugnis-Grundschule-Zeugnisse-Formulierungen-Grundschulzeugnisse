@@ -142,10 +142,10 @@
             m_ctlReportParts.Controls.Add(m_ctlTTabPageLearning);
             m_ctlReportParts.Enabled = false;
             m_ctlReportParts.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            m_ctlReportParts.Location = new Point(-2, 138);
+            m_ctlReportParts.Location = new Point(-4, 138);
             m_ctlReportParts.Name = "m_ctlReportParts";
             m_ctlReportParts.SelectedIndex = 0;
-            m_ctlReportParts.Size = new Size(1028, 40);
+            m_ctlReportParts.Size = new Size(1044, 40);
             m_ctlReportParts.TabIndex = 3;
             m_ctlReportParts.SelectedIndexChanged += m_ctlReportParts_SelectedIndexChanged;
             // 
@@ -156,7 +156,7 @@
             m_ctlTabPageCommunity.Location = new Point(4, 30);
             m_ctlTabPageCommunity.Name = "m_ctlTabPageCommunity";
             m_ctlTabPageCommunity.Padding = new Padding(3);
-            m_ctlTabPageCommunity.Size = new Size(1020, 6);
+            m_ctlTabPageCommunity.Size = new Size(1036, 6);
             m_ctlTabPageCommunity.TabIndex = 0;
             m_ctlTabPageCommunity.Text = "Community";
             // 
@@ -164,7 +164,7 @@
             // 
             m_ctlTabPageWorkHabits.Location = new Point(4, 30);
             m_ctlTabPageWorkHabits.Name = "m_ctlTabPageWorkHabits";
-            m_ctlTabPageWorkHabits.Size = new Size(1020, 6);
+            m_ctlTabPageWorkHabits.Size = new Size(1036, 6);
             m_ctlTabPageWorkHabits.TabIndex = 2;
             m_ctlTabPageWorkHabits.Text = "Work Habits";
             m_ctlTabPageWorkHabits.UseVisualStyleBackColor = true;
@@ -174,14 +174,15 @@
             m_ctlTTabPageLearning.Location = new Point(4, 30);
             m_ctlTTabPageLearning.Name = "m_ctlTTabPageLearning";
             m_ctlTTabPageLearning.Padding = new Padding(3);
-            m_ctlTTabPageLearning.Size = new Size(1020, 6);
+            m_ctlTTabPageLearning.Size = new Size(1036, 6);
             m_ctlTTabPageLearning.TabIndex = 1;
             m_ctlTTabPageLearning.Text = "Learning";
             m_ctlTTabPageLearning.UseVisualStyleBackColor = true;
             // 
             // m_btnCreateNextWorseCommunity
             // 
-            m_btnCreateNextWorseCommunity.Location = new Point(657, 500);
+            m_btnCreateNextWorseCommunity.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            m_btnCreateNextWorseCommunity.Location = new Point(669, 500);
             m_btnCreateNextWorseCommunity.Name = "m_btnCreateNextWorseCommunity";
             m_btnCreateNextWorseCommunity.Size = new Size(45, 33);
             m_btnCreateNextWorseCommunity.TabIndex = 8;
@@ -191,7 +192,8 @@
             // 
             // m_btnCreateNextBetterCommunity
             // 
-            m_btnCreateNextBetterCommunity.Location = new Point(312, 500);
+            m_btnCreateNextBetterCommunity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            m_btnCreateNextBetterCommunity.Location = new Point(314, 500);
             m_btnCreateNextBetterCommunity.Name = "m_btnCreateNextBetterCommunity";
             m_btnCreateNextBetterCommunity.Size = new Size(45, 33);
             m_btnCreateNextBetterCommunity.TabIndex = 7;
@@ -201,7 +203,8 @@
             // 
             // m_btnNextWorseCommunity
             // 
-            m_btnNextWorseCommunity.Location = new Point(657, 367);
+            m_btnNextWorseCommunity.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            m_btnNextWorseCommunity.Location = new Point(669, 367);
             m_btnNextWorseCommunity.Name = "m_btnNextWorseCommunity";
             m_btnNextWorseCommunity.Size = new Size(45, 33);
             m_btnNextWorseCommunity.TabIndex = 6;
@@ -211,7 +214,7 @@
             // 
             // m_btnNextBestCommunity
             // 
-            m_btnNextBestCommunity.Location = new Point(312, 367);
+            m_btnNextBestCommunity.Location = new Point(314, 367);
             m_btnNextBestCommunity.Name = "m_btnNextBestCommunity";
             m_btnNextBestCommunity.Size = new Size(45, 33);
             m_btnNextBestCommunity.TabIndex = 5;
@@ -221,6 +224,7 @@
             // 
             // m_tbxNextBestTextCommunity
             // 
+            m_tbxNextBestTextCommunity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             m_tbxNextBestTextCommunity.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             m_tbxNextBestTextCommunity.Location = new Point(16, 361);
             m_tbxNextBestTextCommunity.Multiline = true;
@@ -231,9 +235,9 @@
             // 
             // m_tbxNextWorseTextCommunity
             // 
-            m_tbxNextWorseTextCommunity.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            m_tbxNextWorseTextCommunity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             m_tbxNextWorseTextCommunity.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            m_tbxNextWorseTextCommunity.Location = new Point(708, 361);
+            m_tbxNextWorseTextCommunity.Location = new Point(724, 361);
             m_tbxNextWorseTextCommunity.Multiline = true;
             m_tbxNextWorseTextCommunity.Name = "m_tbxNextWorseTextCommunity";
             m_tbxNextWorseTextCommunity.ReadOnly = true;
@@ -242,10 +246,10 @@
             // 
             // m_tbxCurrentTextCommunity
             // 
-            m_tbxCurrentTextCommunity.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            m_tbxCurrentTextCommunity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             m_tbxCurrentTextCommunity.BackColor = SystemColors.ControlLightLight;
             m_tbxCurrentTextCommunity.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            m_tbxCurrentTextCommunity.Location = new Point(363, 361);
+            m_tbxCurrentTextCommunity.Location = new Point(370, 361);
             m_tbxCurrentTextCommunity.Multiline = true;
             m_tbxCurrentTextCommunity.Name = "m_tbxCurrentTextCommunity";
             m_tbxCurrentTextCommunity.ReadOnly = true;
@@ -273,7 +277,7 @@
             m_tbxTextCommunity.Multiline = true;
             m_tbxTextCommunity.Name = "m_tbxTextCommunity";
             m_tbxTextCommunity.ReadOnly = true;
-            m_tbxTextCommunity.Size = new Size(982, 96);
+            m_tbxTextCommunity.Size = new Size(998, 96);
             m_tbxTextCommunity.TabIndex = 0;
             // 
             // m_dlgSelectFile
@@ -307,7 +311,6 @@
             // 
             // m_ctlUpDownPoints
             // 
-            m_ctlUpDownPoints.Anchor = AnchorStyles.Top;
             m_ctlUpDownPoints.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             m_ctlUpDownPoints.Location = new Point(67, 325);
             m_ctlUpDownPoints.Name = "m_ctlUpDownPoints";
@@ -318,8 +321,9 @@
             // 
             // m_chkAddName
             // 
+            m_chkAddName.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             m_chkAddName.AutoSize = true;
-            m_chkAddName.Location = new Point(363, 559);
+            m_chkAddName.Location = new Point(372, 559);
             m_chkAddName.Name = "m_chkAddName";
             m_chkAddName.Size = new Size(87, 21);
             m_chkAddName.TabIndex = 13;
@@ -385,7 +389,7 @@
             Controls.Add(m_oMenuStrip);
             Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MainMenuStrip = m_oMenuStrip;
-            MinimumSize = new Size(898, 642);
+            MinimumSize = new Size(1042, 642);
             Name = "SchoolReportForm";
             Text = "School Report / Assessment Texts";
             m_ctlGroupBoxGender.ResumeLayout(false);
@@ -419,7 +423,6 @@
         private Button m_btnNextWorseCommunity;
         private Button m_btnNextBestCommunity;
         private TextBox m_tbxNextBestTextCommunity;
-        private Button m_btnLoadFile;
         private OpenFileDialog m_dlgSelectFile;
         private Label m_lblCurrentPoint;
         private Button m_btnAddCurrentText;
