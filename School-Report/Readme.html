@@ -82,7 +82,7 @@
             <li>Repeat as needed, then copy the complete assessment text.</li>
         </ul>
         <h2>Structure of XML document</h2>
-        <pre class="box-gray">&lt;?xml version="1.0" encoding="utf-8" ?>
+        <pre class="box-gray" lang="" translate="no">&lt;?xml version="1.0" encoding="utf-8" ?>
 &lt;school-report-texts>
         &lt;section strName="Soziales">
         &lt;point strCaption="Miteinander leben und lernen">
@@ -103,22 +103,22 @@
   &lt;/section>
 &lt;/school-report-texts></pre>
         <h3>Root Element</h3>
-        <p>&lt;school-report-texts>: The container for all report sections.</p>
+        <p><bdo lang="" translate="no">&lt;school-report-texts></bdo> The container for all report sections.</p>
         <h3>Sections</h3>
         <p>
-            Each &lt;section> represents a thematic area of the school report. Section element has an attribute:<br />
+            Each <bdo lang="" translate="no">&lt;section></bdo> represents a thematic area of the school report. Section element has an attribute:<br />
             strName="...": The double quoted part contains names of section that will appear as tabs in the GUI.
         </p>
         <h3>Points</h3>
         <p>
-            Each &lt;point> within a section describes a specific aspect of social behavior. Each point has attribute:<br />
+            Each <bdo lang="" translate="no">&lt;point></bdo> within a section describes a specific aspect of social behavior. Each point has attribute:<br />
             strCaption="...": The title of the category being assessed.
         </p>
         <h3>Assessments</h3>
-        <p>Each &lt;assessment> provides a prewritten evaluation text for a student's behavior in that category. Assessments can have following attributes:</p>
+        <p>Each <bdo lang="" translate="no">&lt;assessment></bdo> provides a prewritten evaluation text for a student's behavior in that category. Assessments can have following attributes:</p>
         <ul>
-            <li>nId: A numeric identifier for the assessment (optional)</li>
-            <li>strText: The actual evaluation text describing the student's evaluation in the given category. This attribute is mandatory.</li>
+            <li><bdo lang="" translate="no">nId</bdo>: A numeric identifier for the assessment (optional)</li>
+            <li><bdo lang="" translate="no">strText</bdo> The actual evaluation text describing the student's evaluation in the given category. This attribute is mandatory.</li>
         </ul>
     </div>
 </body>
