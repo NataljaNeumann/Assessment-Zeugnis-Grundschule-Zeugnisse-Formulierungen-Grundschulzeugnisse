@@ -233,6 +233,8 @@ namespace School_Report
                             throw new Exception($"Missing 'strText' attribute in <assessment> element under <point strCaption='{strCaption}'>");
 
                         strValue = strValue.Replace("Du", "er/sie", StringComparison.InvariantCultureIgnoreCase)
+                            .Replace("Deinen", "seinen/ihren", StringComparison.InvariantCultureIgnoreCase)
+                            .Replace("Deinem", "seinem/ihrem", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("Deine", "seine/ihre", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("Dir", "ihm/ihr", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("Dich", "sich", StringComparison.InvariantCultureIgnoreCase)
@@ -494,7 +496,7 @@ namespace School_Report
                 int nPosToReplace = -1;
 
                 foreach (string strTextToSearch in new string[]
-                                { " Er/sie ", " ihm/ihr ", " Ihn/sie ", " Seine/ihre "})
+                                { " Er/sie ", " Ihm/ihr ", " Ihn/sie ", " Seine/ihre "})
                 {
                     int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
                     if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
@@ -535,6 +537,10 @@ namespace School_Report
                     .Replace(" ihn/sie ", " ihn ")
                     .Replace(" Seine/ihre ", " Seine ")
                     .Replace(" seine/ihre ", " seine ")
+                    .Replace(" Seinen/ihren ", " Seinen ")
+                    .Replace(" seinen/ihren ", " seinen ")
+                    .Replace(" Seinem/ihrem ", " Seinem ")
+                    .Replace(" seinem/ihrem ", " seinem ")
                     .Replace(" Name ", " " + strNameToUse + " ")
                     .Replace(" Namens ", " " + strNameToUse + "s ");
             }
@@ -550,6 +556,10 @@ namespace School_Report
                     .Replace(" ihn/sie ", " sie ")
                     .Replace(" Seine/ihre ", " Ihre ")
                     .Replace(" seine/ihre ", " ihre ")
+                    .Replace(" Seinen/ihren ", " Ihren ")
+                    .Replace(" seinen/ihren ", " ihren ")
+                    .Replace(" Seinem/ihrem ", " Ihrem ")
+                    .Replace(" seinem/ihrem ", " ihrem ")
                     .Replace(" Name ", " " + strNameToUse + " ")
                     .Replace(" Namens ", " " + strNameToUse + "s ");
             }
@@ -1308,7 +1318,7 @@ namespace School_Report
 
         //===================================================================================================
         /// <summary>
-        /// This is executed when user clicks inside the current assessment text
+        /// This is executed when user clicks inside the current assessment text for correction of it
         /// </summary>
         /// <param name="oSender">Sender object</param>
         /// <param name="oArgs">Event args</param>
@@ -1343,6 +1353,11 @@ namespace School_Report
                             [m_nCurrentValueIndex]
                             .Text
                         = oForm.AssessmentText;
+
+                        if (m_strFilePath != null)
+                        {
+                            SaveSchoolReportExtended(m_oTexts, m_oFrequencies, m_oCoOccurences, m_strFilePath);
+                        }
 
                         AdaptTextToGenderAndName(m_tbxCurrentTextCommunity);
                     }
@@ -1401,12 +1416,101 @@ namespace School_Report
 
         private void OnCreateNextBetterCommunity_Click(object sender, EventArgs e)
         {
+            if (m_oTexts.Count == 0 || !m_oTexts.ContainsKey(m_strCurrentSection))
+                return;
+
+            string[] astrPoints = m_oTexts[m_strCurrentSection].Keys.ToArray();
+            string strCurrentPoint = astrPoints[m_nCurrentPoint];
+
+            if (m_nCurrentValueIndex >= 0 &&
+                m_nCurrentValueIndex < m_oTexts
+                    [m_strCurrentSection]
+                    [strCurrentPoint].Count)
+            {
+                string strText = m_oTexts
+                    [m_strCurrentSection]
+                    [strCurrentPoint]
+                    [m_nCurrentValueIndex]
+                    .Text;
+
+                using (TextChangeForm oForm = new TextChangeForm(strText))
+                {
+                    if (oForm.ShowDialog() == DialogResult.OK)
+                    {
+                        m_oTexts
+                            [m_strCurrentSection]
+                            [strCurrentPoint]
+                            .Insert(m_nCurrentValueIndex, new
+                            AssessmentText(++m_nMaxId, strText));
+
+                        m_oTexts
+                            [m_strCurrentSection]
+                            [strCurrentPoint]
+                            [m_nCurrentValueIndex]
+                            .Text
+                        = oForm.AssessmentText;
+
+                        ShowCurrentPoint();
+
+
+                        if (m_strFilePath != null)
+                        {
+                            SaveSchoolReportExtended(m_oTexts, m_oFrequencies, m_oCoOccurences, m_strFilePath);
+                        }
+                    }
+                }
+            }
 
         }
 
         private void OnCreateNextWorseCommunity_Click(object sender, EventArgs e)
         {
+            if (m_oTexts.Count == 0 || !m_oTexts.ContainsKey(m_strCurrentSection))
+                return;
+
+            string[] astrPoints = m_oTexts[m_strCurrentSection].Keys.ToArray();
+            string strCurrentPoint = astrPoints[m_nCurrentPoint];
+
+            if (m_nCurrentValueIndex >= 0 &&
+                m_nCurrentValueIndex < m_oTexts
+                    [m_strCurrentSection]
+                    [strCurrentPoint].Count)
+            {
+                string strText = m_oTexts
+                    [m_strCurrentSection]
+                    [strCurrentPoint]
+                    [m_nCurrentValueIndex]
+                    .Text;
+
+                using (TextChangeForm oForm = new TextChangeForm(strText))
+                {
+                    if (oForm.ShowDialog() == DialogResult.OK)
+                    {
+                        m_oTexts
+                            [m_strCurrentSection]
+                            [strCurrentPoint]
+                            .Insert(++m_nCurrentValueIndex, new
+                            AssessmentText(++m_nMaxId, strText));
+
+                        m_oTexts
+                            [m_strCurrentSection]
+                            [strCurrentPoint]
+                            [m_nCurrentValueIndex]
+                            .Text
+                        = oForm.AssessmentText;
+
+                        ShowCurrentPoint();
+
+                        if (m_strFilePath != null)
+                        {
+                            SaveSchoolReportExtended(m_oTexts, m_oFrequencies, m_oCoOccurences, m_strFilePath);
+                        }
+
+                    }
+                }
+            }
 
         }
+
     }
 }
