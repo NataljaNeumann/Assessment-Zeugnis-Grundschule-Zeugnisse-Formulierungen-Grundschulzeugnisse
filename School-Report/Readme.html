@@ -16,7 +16,7 @@
         <h3>(2) Licence</h3>
         <p>Selecting this option launches the default web browser and navigates to the license page of the application. This page outlines the terms of use, copyright information, and any open-source attributions. It provides transparency and legal clarity for users regarding how the application and its content may be used or distributed.</p>
         <h3>(3) About</h3>
-        <p>The "About" menu item opens a modal dialog or popup window that displays detailed information about the application. This includes the version number, developer or organization name, contact information, and a brief description of the app’s purpose. It may also include acknowledgments and links to related resources or documentation.</p>
+        <p>The "About" menu item opens a modal dialog or popup window that displays detailed information about the application. This includes the version number, developer or organization name, contact information, and a brief description.</p>
         <h2>User Input Section</h2>
         <p>This section allows users to personalize the assessment texts by entering specific details about the individual being assessed.</p>
         <h3>(4) Name Textbox</h3>
@@ -30,14 +30,14 @@
         <p>Learning: Focuses on academic performance, curiosity, and intellectual engagement.</p>
         <p>Each tab contains a list of assessment points relevant to its category. Users can navigate between tabs to view and select assessments across different domains.</p>
         <h2>(7) Complete Assessment Text Box</h2>
-        <p>This large, scrollable text area displays the full assessment document that has been compiled from individual assessment points. Each time the user clicks the “Add to Complete Assessment” button (Element 8), the current assessment text (Element 10) is appended to this box. The text is formatted for readability, with each entry separated by line breaks or bullet points. This area supports manual editing, allowing users to refine the final output before exporting or saving.</p>
+        <p>This large, scrollable text area displays the full assessment document that has been compiled from individual assessment points. Each time the user clicks the “Add to Complete Assessment” button (Element 8), the current assessment text (Element 10) is appended to this box. This area supports manual editing, allowing users to refine the final output before exporting or saving.</p>
         <h2>Assessment Interaction Controls</h2>
+        <h3>(8) Add to Complete Assessment Button</h3>
         <p>
-            <b>(8) Add to Complete Assessment Button</b><br />
             This button enables users to append the currently selected assessment point to the cumulative assessment text. Once clicked, the selected text is added to a growing document that represents the full evaluation of the individual. This document can be reviewed, edited, and exported as needed.
         </p>
+        <h3>(9) Up/Down Navigation Buttons</h3>
         <p>
-            <b>(9) Up/Down Navigation Buttons</b><br />
             These buttons allow users to scroll through the list of available assessment points within the active tab. The “Up” button moves the selection to the previous item, while the “Down” button advances to the next. This facilitates quick navigation and comparison of different assessments.
         </p>
         <h2>Assessment Editing Panel</h2>
@@ -46,7 +46,7 @@
         <p>This textbox contains the currently selected assessment statement. It is the text that will be added to the complete assessment when the user clicks the “Add” button (Element 8). Users may edit this text directly to personalize or refine the language before adding it. The textbox is styled to highlight its importance, often with a border or background color to distinguish it from other elements.</p>
         <p>The chekcbox (18) allows user to replace one of the personal pronouns by the name of the user for more perconal assessment texts.</p>
         <h3>(11) Next Better Assessment Text</h3>
-        <p>Located to the left of the current assessment text (Element 10), this textbox displays a more favorable version of the current assessment. It provides users with a positive alternative that may better reflect the individual’s strengths. If no better assessment exists for the current point, this textbox remains empty or displays a placeholder message such as “No better assessment available.”</p>
+        <p>Located to the left of the current assessment text (Element 10), this textbox displays a more favorable version of the current assessment. It provides users with a positive alternative that may better reflect the individual’s strengths. If no better assessment exists for the current point, this textbox remains empty.</p>
         <h3>(12) Next Worse Assessment Text</h3>
         <p>Located to the right of the current assessment text, this textbox shows a more critical or less favorable version of the current assessment. It allows users to adjust the tone downward if needed. Like the better assessment box, this textbox may be empty if no worse alternative is available.</p>
         <h3>(13) Assessment Point Heading</h3>
@@ -67,7 +67,7 @@
         </p>
         <p>This feature empowers users to expand the assessment library with customized entries that reflect nuanced and personalized observations.</p>
         <h3>(18) Add name</h3>
-        <p>This checkbox allows user to replace one of the personal pronouns by the name of the user for more perconal assessment texts.</p>
+        <p>This checkbox allows user to replace one of the personal pronouns by the name of the assessed person for more perconal assessment texts.</p>
         <h2>Summary of GUI Workflow</h2>
         <p>Here's how a typical user interaction might unfold:</p>
         <ul>
@@ -79,25 +79,25 @@
             <li>Compare Better/Worse Alternatives (Elements 11 and 12).</li>
             <li>Click iside the current text (Element 10) for editing the text.</li>
             <li>Click Add Button (Element 8) to append the current text to the complete assessment (Element 7).</li>
-            <li>Repeat as needed, then copy the complete assessment text.</li>
+            <li>Repeat as needed, then copy the complete assessment text by pressing Ctrl + C.</li>
         </ul>
         <h2>Structure of XML document</h2>
         <pre class="box-gray" lang="" translate="no">&lt;?xml version="1.0" encoding="utf-8" ?>
 &lt;school-report-texts>
-        &lt;section strName="Soziales">
-        &lt;point strCaption="Miteinander leben und lernen">
-        &lt;assessment strText="Seine/ihre MitschülerInnen arbeiteten und spielten sehr gerne mit ihm/ihr zusammen. 
-            Er/sie zeigte sich ihnen gegenüber sehr freundlich und stets respektvoll." />
+        &lt;section strName="Community">
+        &lt;point strCaption="Living and learning together">
+        &lt;assessment strText="His/her classmates enjoyed working and playing with him/her.
+            He/she was very friendly and always respectful towards them." />
         ...
     &lt;/point>
-        &lt;point strCaption="Rücksichtnahme, Toleranz und HilfsbereitschaftRücksichtnahme, Toleranz und Hilfsbereitschaft">
+        &lt;point strCaption="Consideration, tolerance and helpfulness">
         ...
     &lt;/point>
   &lt;/section>
-  &lt;section strName="Arbeitsgewohnheiten">
-    &lt;point strCaption="Verantwortung und Pflichten">
-        &lt;assessment strText="Er/sie hat den Unterricht sehr aufmerksam und stets interessiert verfolgt.
-            An Unterrichtsgesprächen hat er/sie sich aktiv und mit weiterführenden Beiträgen beteiligt." />
+  &lt;section strName="Work habits">
+    &lt;point strCaption="Responsibilities and duties">
+        &lt;assessment strText="He/she followed the lessons very attentively and with great interest.
+            He/she actively participated in class discussions and contributed insightful remarks." />
         ...
     &lt;/point>
   &lt;/section>
