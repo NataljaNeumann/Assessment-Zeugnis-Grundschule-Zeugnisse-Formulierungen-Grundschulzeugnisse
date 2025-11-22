@@ -70,7 +70,7 @@
 :root {
 	/* main colors: the text and the background of text */
 	--color-bg-main: #fff;
-	--color-bg-outside: #e0e6ed;
+	--color-bg-outside: #fff;
 	--color-text-main: #2c3e50;
 	--color-marker-main: var(--color-text-main);
 
