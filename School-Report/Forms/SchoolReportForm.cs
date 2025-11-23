@@ -121,6 +121,7 @@ namespace School_Report
                     out m_oTexts, out m_oFrequencies, out m_oCoOccurences, out m_nMaxId);
 
                 m_ctlReportParts.TabPages.Clear();
+                m_ctlReportParts.Enabled = false;
                 m_strCurrentSection = "";
 
                 foreach (var sectionName in m_oTexts.Keys)
@@ -138,6 +139,7 @@ namespace School_Report
                 if (m_strCurrentSection.Length > 0)
                 {
                     InitCurrentPoint();
+                    m_ctlReportParts.Enabled = true;
                 }
             }
         }
@@ -380,6 +382,7 @@ namespace School_Report
             ShowCurrentPoint();
         }
 
+
         private void ShowCurrentPoint()
         {
             string[] astrPoints = m_oTexts[m_strCurrentSection].Keys.ToArray();
@@ -429,6 +432,7 @@ namespace School_Report
                     [m_nCurrentValueIndex + 1]
                     .Text;
                 AdaptTextToGenderAndName(m_tbxNextWorseTextCommunity);
+                m_btnNextWorseCommunity.Enabled = true;
             }
             else
             {
