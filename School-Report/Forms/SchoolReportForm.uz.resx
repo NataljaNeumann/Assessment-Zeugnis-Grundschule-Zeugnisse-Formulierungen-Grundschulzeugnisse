@@ -117,145 +117,83 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="m_tbxAssessmentText.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="m_tbxAssessmentText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt</value>
-  </data>
-  <data name="m_tbxAssessmentText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 91</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="m_tbxAssessmentText.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="m_tbxAssessmentText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>743, 207</value>
-  </data>
-  <data name="m_tbxAssessmentText.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;m_tbxAssessmentText.Name" xml:space="preserve">
-    <value>m_tbxAssessmentText</value>
-  </data>
-  <data name="&gt;&gt;m_tbxAssessmentText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_tbxAssessmentText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_tbxAssessmentText.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="m_lblDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="m_lblDescription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="m_lblDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
-  </data>
-  <data name="m_lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>743, 68</value>
-  </data>
-  <data name="m_lblDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="m_lblDescription.Text" xml:space="preserve">
-    <value>Please enter the new (or corrected) text in a gender-invariant manner, e.g. use he/she, him/her, his/her etc in text. Use male personal pronoun first. Don't use clear names in text, If neededd, use a Name substitute.</value>
-  </data>
-  <data name="m_lblDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>BottomLeft</value>
-  </data>
-  <data name="&gt;&gt;m_lblDescription.Name" xml:space="preserve">
-    <value>m_lblDescription</value>
-  </data>
-  <data name="&gt;&gt;m_lblDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_lblDescription.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_lblDescription.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="m_btnOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="m_btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 312</value>
-  </data>
-  <data name="m_btnOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 35</value>
-  </data>
-  <data name="m_btnOk.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="m_btnOk.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;m_btnOk.Name" xml:space="preserve">
-    <value>m_btnOk</value>
-  </data>
-  <data name="&gt;&gt;m_btnOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_btnOk.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_btnOk.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="m_btnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="m_btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>635, 312</value>
-  </data>
-  <data name="m_btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 35</value>
-  </data>
-  <data name="m_btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="m_btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;m_btnCancel.Name" xml:space="preserve">
-    <value>m_btnCancel</value>
-  </data>
-  <data name="&gt;&gt;m_btnCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_btnCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_btnCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <metadata name="m_dlgSelectFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="m_oMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>153, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 17</value>
+  <data xml:space="preserve" name="m_lblName.Text">
+    <value>Ism</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>767, 359</value>
+  <data xml:space="preserve" name="m_rbDiverse.Text">
+    <value>xilma-xil</value>
   </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
+  <data xml:space="preserve" name="m_rbFemale.Text">
+    <value>ayol</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>New Assessment or Assessment Correction</value>
+  <data xml:space="preserve" name="m_rbMale.Text">
+    <value>erkak</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>TextChangeForm</value>
+  <data xml:space="preserve" name="m_ctlGroupBoxGender.Text">
+    <value>jins</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data xml:space="preserve" name="m_ctlTabPageCommunity.Text">
+    <value>ijtimoiy</value>
+  </data>
+  <data xml:space="preserve" name="m_ctlTabPageWorkHabits.Text">
+    <value>ish odatlari</value>
+  </data>
+  <data xml:space="preserve" name="m_ctlTTabPageLearning.Text">
+    <value>o'rganish</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCreateNextWorseCommunity.Text">
+    <value>+</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCreateNextBetterCommunity.Text">
+    <value>+</value>
+  </data>
+  <data xml:space="preserve" name="m_btnNextWorseCommunity.Text">
+    <value>&gt;</value>
+  </data>
+  <data xml:space="preserve" name="m_btnNextBestCommunity.Text">
+    <value>&lt;</value>
+  </data>
+  <data xml:space="preserve" name="m_lblTextCommunity.Text">
+    <value>Matn</value>
+  </data>
+  <data xml:space="preserve" name="m_dlgSelectFile.Filter">
+    <value>Baholash matnli fayllar|*.School-Report.xml</value>
+  </data>
+  <data xml:space="preserve" name="m_dlgSelectFile.Title">
+    <value>Baholash matnlarini tanlang</value>
+  </data>
+  <data xml:space="preserve" name="m_lblCurrentPoint.Text">
+    <value>Sarlavha</value>
+  </data>
+  <data xml:space="preserve" name="m_btnAddCurrentText.Text">
+    <value>+</value>
+  </data>
+  <data xml:space="preserve" name="m_chkAddName.Text">
+    <value>Shaxsning ismini qo'shing</value>
+  </data>
+  <data xml:space="preserve" name="m_oChooseTextsToolStripMenuItem.Text">
+    <value>Matnlarni tanlang</value>
+  </data>
+  <data xml:space="preserve" name="m_oAboutToolStripMenuItem.Text">
+    <value>Ilova haqida</value>
+  </data>
+  <data xml:space="preserve" name="m_oLicenseToolStripMenuItem.Text">
+    <value>Litsenziya (GPL 2)</value>
+  </data>
+  <data xml:space="preserve" name="$this.Text">
+    <value>Maktab hisoboti / Baholash matnlari </value>
   </data>
 </root>
