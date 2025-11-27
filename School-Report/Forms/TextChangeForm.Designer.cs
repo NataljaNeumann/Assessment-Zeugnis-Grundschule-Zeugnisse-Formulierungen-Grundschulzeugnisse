@@ -37,59 +37,37 @@
             // 
             // m_tbxAssessmentText
             // 
-            m_tbxAssessmentText.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            m_tbxAssessmentText.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            m_tbxAssessmentText.Location = new Point(12, 91);
-            m_tbxAssessmentText.Multiline = true;
+            resources.ApplyResources(m_tbxAssessmentText, "m_tbxAssessmentText");
             m_tbxAssessmentText.Name = "m_tbxAssessmentText";
-            m_tbxAssessmentText.Size = new Size(743, 207);
-            m_tbxAssessmentText.TabIndex = 0;
             // 
             // m_lblDescription
             // 
-            m_lblDescription.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            m_lblDescription.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            m_lblDescription.Location = new Point(12, 9);
+            resources.ApplyResources(m_lblDescription, "m_lblDescription");
             m_lblDescription.Name = "m_lblDescription";
-            m_lblDescription.Size = new Size(743, 68);
-            m_lblDescription.TabIndex = 1;
-            m_lblDescription.Text = resources.GetString("m_lblDescription.Text");
-            m_lblDescription.TextAlign = ContentAlignment.BottomLeft;
             // 
             // m_btnOk
             // 
-            m_btnOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            m_btnOk.Location = new Point(479, 312);
+            resources.ApplyResources(m_btnOk, "m_btnOk");
             m_btnOk.Name = "m_btnOk";
-            m_btnOk.Size = new Size(125, 35);
-            m_btnOk.TabIndex = 2;
-            m_btnOk.Text = "OK";
             m_btnOk.UseVisualStyleBackColor = true;
             m_btnOk.Click += m_btnOk_Click;
             // 
             // m_btnCancel
             // 
-            m_btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            m_btnCancel.Location = new Point(635, 312);
+            resources.ApplyResources(m_btnCancel, "m_btnCancel");
             m_btnCancel.Name = "m_btnCancel";
-            m_btnCancel.Size = new Size(120, 35);
-            m_btnCancel.TabIndex = 3;
-            m_btnCancel.Text = "Cancel";
             m_btnCancel.UseVisualStyleBackColor = true;
             m_btnCancel.Click += m_btnCancel_Click;
             // 
             // TextChangeForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(767, 359);
             Controls.Add(m_btnCancel);
             Controls.Add(m_btnOk);
             Controls.Add(m_lblDescription);
             Controls.Add(m_tbxAssessmentText);
-            Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "TextChangeForm";
-            Text = "New Assessment or Assessment Correction";
             ResumeLayout(false);
             PerformLayout();
         }
