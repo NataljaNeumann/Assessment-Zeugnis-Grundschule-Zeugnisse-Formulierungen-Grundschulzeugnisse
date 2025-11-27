@@ -1,0 +1,3 @@
+ResxVsCsv --directory School-Report\Forms --pattern SchoolReportForm.*resx --addcultures af,am-ET,ar,az,be,bg,bo-CN,bs-Latn-BA,ca,cs,da,de,el,es,et,fa,fi,fr,ga-IE,he,hi,hr,hu,hy,id,ig-NG,is,it,ja,ka,kk,km-KH,ko,ku-Arab-IQ,ky-KG,lt,lv,mk,mn-MN,ms,nl,no,pa-Arab-PK,pa-IN,pt,ro,ru,rw-RW,sa,sk,sl,so-SO,sr,sv,tg-Cyrl-TJ,th,ti-ER,tk-TM,tr,uk,uz,vi,wo-SN,yo-NG,zh-CHS,zh-CHT
+ResxVsCsv --directory School-Report\Forms --pattern WordChangeForm*resx --addcultures af,am-ET,ar,az,be,bg,bo-CN,bs-Latn-BA,ca,cs,da,de,el,es,et,fa,fi,fr,ga-IE,he,hi,hr,hu,hy,id,ig-NG,is,it,ja,ka,kk,km-KH,ko,ku-Arab-IQ,ky-KG,lt,lv,mk,mn-MN,ms,nl,no,pa-Arab-PK,pa-IN,pt,ro,ru,rw-RW,sa,sk,sl,so-SO,sr,sv,tg-Cyrl-TJ,th,ti-ER,tk-TM,tr,uk,uz,vi,wo-SN,yo-NG,zh-CHS,zh-CHT
+pause
