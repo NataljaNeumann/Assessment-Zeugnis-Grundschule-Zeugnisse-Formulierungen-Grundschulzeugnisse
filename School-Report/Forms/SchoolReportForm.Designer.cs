@@ -99,6 +99,7 @@
             // 
             // m_rbDiverse
             // 
+            m_rbDiverse.Anchor = AnchorStyles.Left;
             m_rbDiverse.AutoSize = true;
             m_rbDiverse.Location = new Point(400, 35);
             m_rbDiverse.Name = "m_rbDiverse";
@@ -111,6 +112,7 @@
             // 
             // m_rbFemale
             // 
+            m_rbFemale.Anchor = AnchorStyles.Left;
             m_rbFemale.AutoSize = true;
             m_rbFemale.Location = new Point(198, 35);
             m_rbFemale.Name = "m_rbFemale";
@@ -123,6 +125,7 @@
             // 
             // m_rbMale
             // 
+            m_rbMale.Anchor = AnchorStyles.Left;
             m_rbMale.AutoSize = true;
             m_rbMale.Checked = true;
             m_rbMale.Location = new Point(20, 35);
@@ -182,6 +185,7 @@
             // m_btnCreateNextWorseCommunity
             // 
             m_btnCreateNextWorseCommunity.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            m_btnCreateNextWorseCommunity.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             m_btnCreateNextWorseCommunity.Location = new Point(669, 500);
             m_btnCreateNextWorseCommunity.Name = "m_btnCreateNextWorseCommunity";
             m_btnCreateNextWorseCommunity.Size = new Size(45, 33);
@@ -193,6 +197,7 @@
             // m_btnCreateNextBetterCommunity
             // 
             m_btnCreateNextBetterCommunity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            m_btnCreateNextBetterCommunity.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             m_btnCreateNextBetterCommunity.Location = new Point(314, 500);
             m_btnCreateNextBetterCommunity.Name = "m_btnCreateNextBetterCommunity";
             m_btnCreateNextBetterCommunity.Size = new Size(45, 33);
@@ -204,6 +209,7 @@
             // m_btnNextWorseCommunity
             // 
             m_btnNextWorseCommunity.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            m_btnNextWorseCommunity.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             m_btnNextWorseCommunity.Location = new Point(669, 367);
             m_btnNextWorseCommunity.Name = "m_btnNextWorseCommunity";
             m_btnNextWorseCommunity.Size = new Size(45, 33);
@@ -214,6 +220,7 @@
             // 
             // m_btnNextBestCommunity
             // 
+            m_btnNextBestCommunity.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             m_btnNextBestCommunity.Location = new Point(314, 367);
             m_btnNextBestCommunity.Name = "m_btnNextBestCommunity";
             m_btnNextBestCommunity.Size = new Size(45, 33);
@@ -287,6 +294,7 @@
             m_dlgSelectFile.Filter = "School Report Texts Files|*.School-Report.xml";
             m_dlgSelectFile.SelectReadOnly = false;
             m_dlgSelectFile.SupportMultiDottedExtensions = true;
+            m_dlgSelectFile.Title = "Choose assessment texts";
             // 
             // m_lblCurrentPoint
             // 
@@ -301,6 +309,7 @@
             // 
             // m_btnAddCurrentText
             // 
+            m_btnAddCurrentText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             m_btnAddCurrentText.Location = new Point(16, 322);
             m_btnAddCurrentText.Name = "m_btnAddCurrentText";
             m_btnAddCurrentText.Size = new Size(45, 33);
@@ -323,9 +332,10 @@
             // 
             m_chkAddName.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             m_chkAddName.AutoSize = true;
-            m_chkAddName.Location = new Point(372, 559);
+            m_chkAddName.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            m_chkAddName.Location = new Point(370, 559);
             m_chkAddName.Name = "m_chkAddName";
-            m_chkAddName.Size = new Size(87, 21);
+            m_chkAddName.Size = new Size(97, 24);
             m_chkAddName.TabIndex = 13;
             m_chkAddName.Text = "Add name";
             m_chkAddName.UseVisualStyleBackColor = true;
