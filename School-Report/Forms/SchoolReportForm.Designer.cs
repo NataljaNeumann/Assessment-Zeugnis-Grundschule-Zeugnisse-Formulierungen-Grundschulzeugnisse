@@ -57,6 +57,7 @@
             m_oChooseTextsToolStripMenuItem = new ToolStripMenuItem();
             m_oAboutToolStripMenuItem = new ToolStripMenuItem();
             m_oLicenseToolStripMenuItem = new ToolStripMenuItem();
+            m_btnCopyFullText = new Button();
             m_ctlGroupBoxGender.SuspendLayout();
             m_ctlReportParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)m_ctlUpDownPoints).BeginInit();
@@ -255,10 +256,18 @@
             resources.ApplyResources(m_oLicenseToolStripMenuItem, "m_oLicenseToolStripMenuItem");
             m_oLicenseToolStripMenuItem.Click += OnLicenseToolStripMenuItem_Click;
             // 
+            // m_btnCopyFullText
+            // 
+            resources.ApplyResources(m_btnCopyFullText, "m_btnCopyFullText");
+            m_btnCopyFullText.Name = "m_btnCopyFullText";
+            m_btnCopyFullText.UseVisualStyleBackColor = true;
+            m_btnCopyFullText.Click += OnCopyText_Click;
+            // 
             // SchoolReportForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(m_btnCopyFullText);
             Controls.Add(m_chkAddName);
             Controls.Add(m_ctlUpDownPoints);
             Controls.Add(m_btnAddCurrentText);
@@ -319,5 +328,6 @@
         private ToolStripMenuItem m_oChooseTextsToolStripMenuItem;
         private ToolStripMenuItem m_oAboutToolStripMenuItem;
         private ToolStripMenuItem m_oLicenseToolStripMenuItem;
+        private Button m_btnCopyFullText;
     }
 }

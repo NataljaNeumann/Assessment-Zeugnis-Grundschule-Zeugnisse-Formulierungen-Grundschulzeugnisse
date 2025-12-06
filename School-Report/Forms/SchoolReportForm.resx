@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_tbxName.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="m_lblName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -174,7 +174,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_lblName.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="m_ctlGroupBoxGender.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -244,7 +244,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_ctlGroupBoxGender.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="m_rbDiverse.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -400,7 +400,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_ctlReportParts.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="m_ctlTabPageCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -512,7 +512,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_btnCreateNextWorseCommunity.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="m_btnCreateNextBetterCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -542,7 +542,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_btnCreateNextBetterCommunity.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="m_btnNextWorseCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -572,7 +572,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_btnNextWorseCommunity.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="m_btnNextBestCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -599,7 +599,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_btnNextBestCommunity.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="m_tbxNextBestTextCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -629,7 +629,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_tbxNextBestTextCommunity.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="m_tbxNextWorseTextCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
@@ -659,7 +659,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_tbxNextWorseTextCommunity.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="m_tbxCurrentTextCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -689,7 +689,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_tbxCurrentTextCommunity.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="m_lblTextCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -698,10 +698,10 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="m_lblTextCommunity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 181</value>
+    <value>67, 181</value>
   </data>
   <data name="m_lblTextCommunity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>982, 36</value>
+    <value>931, 36</value>
   </data>
   <data name="m_lblTextCommunity.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -722,7 +722,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_lblTextCommunity.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="m_tbxTextCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -752,7 +752,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_tbxTextCommunity.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <metadata name="m_dlgSelectFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -794,7 +794,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_lblCurrentPoint.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="m_btnAddCurrentText.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -821,7 +821,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_btnAddCurrentText.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="m_ctlUpDownPoints.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -848,7 +848,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_ctlUpDownPoints.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="m_chkAddName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -881,31 +881,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_chkAddName.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="m_oMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>153, 17</value>
   </metadata>
   <data name="m_oMenuStrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
-  </data>
-  <data name="m_oChooseTextsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 24</value>
-  </data>
-  <data name="m_oChooseTextsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Choose Texts</value>
-  </data>
-  <data name="m_oAboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 24</value>
-  </data>
-  <data name="m_oAboutToolStripMenuItem.Text" xml:space="preserve">
-    <value>About School Report</value>
-  </data>
-  <data name="m_oLicenseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 24</value>
-  </data>
-  <data name="m_oLicenseToolStripMenuItem.Text" xml:space="preserve">
-    <value>License (GPL 2)</value>
   </data>
   <data name="m_oMenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -926,7 +908,55 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;m_oMenuStrip.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
+  </data>
+  <data name="m_oChooseTextsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 24</value>
+  </data>
+  <data name="m_oChooseTextsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Choose Texts</value>
+  </data>
+  <data name="m_oAboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 24</value>
+  </data>
+  <data name="m_oAboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>About School Report</value>
+  </data>
+  <data name="m_oLicenseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 24</value>
+  </data>
+  <data name="m_oLicenseToolStripMenuItem.Text" xml:space="preserve">
+    <value>License (GPL 2)</value>
+  </data>
+  <data name="m_btnCopyFullText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
+  </data>
+  <data name="m_btnCopyFullText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="m_btnCopyFullText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 184</value>
+  </data>
+  <data name="m_btnCopyFullText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 33</value>
+  </data>
+  <data name="m_btnCopyFullText.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="m_btnCopyFullText.Text" xml:space="preserve">
+    <value>⧉</value>
+  </data>
+  <data name="&gt;&gt;m_btnCopyFullText.Name" xml:space="preserve">
+    <value>m_btnCopyFullText</value>
+  </data>
+  <data name="&gt;&gt;m_btnCopyFullText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_btnCopyFullText.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;m_btnCopyFullText.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

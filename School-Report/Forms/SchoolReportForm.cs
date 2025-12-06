@@ -1516,5 +1516,20 @@ namespace School_Report
 
         }
 
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user clicks on the "Copy" button
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnCopyText_Click(object oSender, EventArgs oArgs)
+        {
+            if (!string.IsNullOrEmpty(m_tbxTextCommunity.Text))
+            {
+                Clipboard.SetText(m_tbxTextCommunity.Text);
+            }
+        }
+
     }
 }
