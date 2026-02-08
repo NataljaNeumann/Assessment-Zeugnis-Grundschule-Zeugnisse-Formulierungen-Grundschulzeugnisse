@@ -488,6 +488,40 @@ namespace School_Report
             }
         }
 
+
+        //===================================================================================================
+        /// <summary>
+        /// Tests, if Names in German genitive 
+        /// </summary>
+        /// <param name="strName"></param>
+        /// <returns>true iff the genitiv needs apostrophy instead of s</returns>
+        //===================================================================================================
+        static bool GermanNameNeedsApostrophe(string strName)
+        {
+            if (string.IsNullOrWhiteSpace(strName))
+                return false;
+
+            strName = strName.Trim();
+
+            // Für Mehrfachnamen (z.B. "Hans-Peter") nur den letzten Teil betrachten
+            string lastPart = strName.Split(' ', '-').Last().ToLower();
+
+            // Typische Endungen, die im Genitiv nur einen Apostroph bekommen
+            string[] astrSoundEndings = new[]
+            {
+                "s", "ß", "z", "x", "ce" /* z.B. Alice */
+            };
+
+            foreach (string strEnding in astrSoundEndings)
+            {
+                if (lastPart.EndsWith(strEnding))
+                    return true;
+            }
+
+            return false;
+        }
+
+
         //===================================================================================================
         /// <summary>
         /// Adapts texts in textboxes to given genders and names in German
@@ -533,6 +567,8 @@ namespace School_Report
             if (string.IsNullOrWhiteSpace(strNameToUse))
                 strNameToUse = "NAME FEHLT";
 
+            string strGenitivEnding = GermanNameNeedsApostrophe(strNameToUse) ? "'" : "s";
+
             if (m_rbMale.Checked)
             {
                 strCurrentText = strCurrentText
@@ -549,7 +585,7 @@ namespace School_Report
                     .Replace(" Seinem/ihrem ", " Seinem ")
                     .Replace(" seinem/ihrem ", " seinem ")
                     .Replace(" Name ", " " + strNameToUse + " ")
-                    .Replace(" Namens ", " " + strNameToUse + "s ");
+                    .Replace(" Namens ", " " + strNameToUse + strGenitivEnding +" ");
             }
             else
                 if (m_rbFemale.Checked)
@@ -568,13 +604,13 @@ namespace School_Report
                     .Replace(" Seinem/ihrem ", " Ihrem ")
                     .Replace(" seinem/ihrem ", " ihrem ")
                     .Replace(" Name ", " " + strNameToUse + " ")
-                    .Replace(" Namens ", " " + strNameToUse + "s ");
+                    .Replace(" Namens ", " " + strNameToUse + strGenitivEnding + " ");
             }
             else
             {
                 strCurrentText = strCurrentText
                     .Replace(" Name ", " " + strNameToUse + " ")
-                    .Replace(" Namens ", " " + strNameToUse + "s ");
+                    .Replace(" Namens ", " " + strNameToUse + strGenitivEnding + " ");
             }
 
             tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
