@@ -22,6 +22,7 @@ using School_Report.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
@@ -242,7 +243,7 @@ namespace School_Report
                             .Replace("Dir", "ihm/ihr", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("Dich", "sich", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("hast", "hat").Replace("bist", "ist").Replace("st ", " ");
-
+                       
 
                         strValue = char.ToUpper(strValue[0]) + strValue.Substring(1);
                          */
@@ -452,34 +453,92 @@ namespace School_Report
         //===================================================================================================
         void AdaptTextToGenderAndName(TextBox tbxToAdapt)
         {
-            if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("en"))
+            string strCulture = System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag;
+
+            if (strCulture.StartsWith("en"))
             {
                 AdaptTextToGenderAndName_English(tbxToAdapt);
             }
             else
-            if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("es"))
+            if (strCulture.StartsWith("es"))
             {
                 AdaptTextToGenderAndName_Spanish(tbxToAdapt);
             }
             else
-            if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("pt"))
+            if (strCulture.StartsWith("pt"))
             {
                 AdaptTextToGenderAndName_Portuguese(tbxToAdapt);
             }
             else
-            if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("it"))
+            if (strCulture.StartsWith("it"))
             {
                 AdaptTextToGenderAndName_Italian(tbxToAdapt);
             }
             else
-            if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("fr"))
+            if (strCulture.StartsWith("fr"))
             {
                 AdaptTextToGenderAndName_French(tbxToAdapt);
             }
             else
-            if (System.Threading.Thread.CurrentThread.CurrentUICulture.IetfLanguageTag.StartsWith("ru"))
+            if (strCulture.StartsWith("ru"))
             {
                 AdaptTextToGenderAndName_Russian(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("ja"))
+            {
+                AdaptTextToGenderAndName_Japanese(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("ko"))
+            {
+                AdaptTextToGenderAndName_Korean(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("pl"))
+            {
+                AdaptTextToGenderAndName_Polish(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("fi"))
+            {
+                AdaptTextToGenderAndName_Finnish(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("no"))
+            {
+                AdaptTextToGenderAndName_Norsk(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("nl"))
+            {
+                AdaptTextToGenderAndName_Dutch(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("da"))
+            {
+                AdaptTextToGenderAndName_Danish(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("sw"))
+            {
+                AdaptTextToGenderAndName_Swedish(tbxToAdapt);
+            }
+            else
+            if (strCulture.StartsWith("zh", StringComparison.OrdinalIgnoreCase))
+            {
+                // Simplified Chinese regions
+                if (strCulture.EndsWith("CN", StringComparison.OrdinalIgnoreCase) ||
+                    strCulture.EndsWith("SG", StringComparison.OrdinalIgnoreCase) ||
+                    strCulture.EndsWith("MY", StringComparison.OrdinalIgnoreCase))
+                {
+                    AdaptTextToGenderAndName_ChineseSimplified(tbxToAdapt);
+                }
+                else
+                {
+                    // Traditional Chinese regions (TW, HK, MO, and any future ones)
+                    AdaptTextToGenderAndName_ChineseTraditional(tbxToAdapt);
+                }
             }
             else
             {
@@ -1032,6 +1091,664 @@ namespace School_Report
             tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
         }
 
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Dutch
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_Dutch(TextBox tbxToAdapt)
+        {
+            string strCurrentText = " " + tbxToAdapt.Text.Replace(".", " .") + " ";
+
+            // Insert name placeholder only once
+            if (m_chkAddName.Checked && !strCurrentText.Contains("Naam"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " Hij/zij ", " Hem/haar ", " Zijn/haar " })
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" Hij/zij ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" Zijn/haar ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        // Dutch genitive is simply "Naams"
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Naams " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Naam " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // Determine name to use
+            string strNameToUse = m_tbxName.Text;
+            if (string.IsNullOrWhiteSpace(strNameToUse))
+                strNameToUse = "NAAM ONTBREEKT";
+
+            // Dutch genitive is always "s" (no apostrophe logic needed)
+            string strGenitiveEnding = "s";
+
+            // Gender-specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" hij/zij ", " hij ")
+                    .Replace(" Hij/zij ", " Hij ")
+                    .Replace(" hem/haar ", " hem ")
+                    .Replace(" Hem/haar ", " Hem ")
+                    .Replace(" zijn/haar ", " zijn ")
+                    .Replace(" Zijn/haar ", " Zijn ")
+                    .Replace(" Naam ", " " + strNameToUse + " ")
+                    .Replace(" Naams ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" hij/zij ", " zij ")
+                    .Replace(" Hij/zij ", " Zij ")
+                    .Replace(" hem/haar ", " haar ")
+                    .Replace(" Hem/haar ", " Haar ")
+                    .Replace(" zijn/haar ", " haar ")
+                    .Replace(" Zijn/haar ", " Haar ")
+                    .Replace(" Naam ", " " + strNameToUse + " ")
+                    .Replace(" Naams ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else
+            {
+                // Neutral: only insert the name
+                strCurrentText = strCurrentText
+                    .Replace(" Naam ", " " + strNameToUse + " ")
+                    .Replace(" Naams ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
+        }
+
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Swedish
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_Swedish(TextBox tbxToAdapt)
+        {
+            string strCurrentText = " " + tbxToAdapt.Text.Replace(".", " .") + " ";
+
+            // Insert name placeholder only once
+            if (m_chkAddName.Checked && !strCurrentText.Contains("Namn"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " Han/hon ", " Honom/henne ", " Hans/hennes " })
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" Han/hon ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" Hans/hennes ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        // Swedish genitive: Namnets
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Namnets " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Namn " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // Determine name to use
+            string strNameToUse = m_tbxName.Text;
+            if (string.IsNullOrWhiteSpace(strNameToUse))
+                strNameToUse = "NAMN SAKNAS";
+
+            // Swedish genitive is always "s"
+            string strGenitiveEnding = "s";
+
+            // Gender-specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" han/hon ", " han ")
+                    .Replace(" Han/hon ", " Han ")
+                    .Replace(" honom/henne ", " honom ")
+                    .Replace(" Honom/henne ", " Honom ")
+                    .Replace(" hans/hennes ", " hans ")
+                    .Replace(" Hans/hennes ", " Hans ")
+                    .Replace(" Namn ", " " + strNameToUse + " ")
+                    .Replace(" Namnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" han/hon ", " hon ")
+                    .Replace(" Han/hon ", " Hon ")
+                    .Replace(" honom/henne ", " henne ")
+                    .Replace(" Honom/henne ", " Henne ")
+                    .Replace(" hans/hennes ", " hennes ")
+                    .Replace(" Hans/hennes ", " Hennes ")
+                    .Replace(" Namn ", " " + strNameToUse + " ")
+                    .Replace(" Namnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else
+            {
+                // Neutral: only insert the name
+                strCurrentText = strCurrentText
+                    .Replace(" Namn ", " " + strNameToUse + " ")
+                    .Replace(" Namnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
+        }
+
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Norwegian (Bokmål)
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_Norsk(TextBox tbxToAdapt)
+        {
+            string strCurrentText = " " + tbxToAdapt.Text.Replace(".", " .") + " ";
+
+            // Insert name placeholder only once
+            if (m_chkAddName.Checked && !strCurrentText.Contains("Navn"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " Han/hun ", " Ham/henne ", " Hans/hennes " })
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" Han/hun ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" Hans/hennes ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        // Norwegian genitive: Navnets
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Navnets " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Navn " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // Determine name to use
+            string strNameToUse = m_tbxName.Text;
+            if (string.IsNullOrWhiteSpace(strNameToUse))
+                strNameToUse = "NAVN MANGLER";
+
+            // Norwegian genitive is always "s"
+            string strGenitiveEnding = "s";
+
+            // Gender-specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" han/hun ", " han ")
+                    .Replace(" Han/hun ", " Han ")
+                    .Replace(" ham/henne ", " ham ")
+                    .Replace(" Ham/henne ", " Ham ")
+                    .Replace(" hans/hennes ", " hans ")
+                    .Replace(" Hans/hennes ", " Hans ")
+                    .Replace(" Navn ", " " + strNameToUse + " ")
+                    .Replace(" Navnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" han/hun ", " hun ")
+                    .Replace(" Han/hun ", " Hun ")
+                    .Replace(" ham/henne ", " henne ")
+                    .Replace(" Ham/henne ", " Henne ")
+                    .Replace(" hans/hennes ", " hennes ")
+                    .Replace(" Hans/hennes ", " Hennes ")
+                    .Replace(" Navn ", " " + strNameToUse + " ")
+                    .Replace(" Navnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else
+            {
+                // Neutral: only insert the name
+                strCurrentText = strCurrentText
+                    .Replace(" Navn ", " " + strNameToUse + " ")
+                    .Replace(" Navnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
+        }
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Danish
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_Danish(TextBox tbxToAdapt)
+        {
+            string strCurrentText = " " + tbxToAdapt.Text.Replace(".", " .") + " ";
+
+            // Insert name placeholder only once
+            if (m_chkAddName.Checked && !strCurrentText.Contains("Navn"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " Han/hun ", " Ham/hende ", " Hans/hendes " })
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" Han/hun ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" Hans/hendes ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        // Danish genitive: Navnets
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Navnets " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Navn " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // Determine name to use
+            string strNameToUse = m_tbxName.Text;
+            if (string.IsNullOrWhiteSpace(strNameToUse))
+                strNameToUse = "NAVN MANGLER";
+
+            // Danish genitive is always "s"
+            string strGenitiveEnding = "s";
+
+            // Gender-specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" han/hun ", " han ")
+                    .Replace(" Han/hun ", " Han ")
+                    .Replace(" ham/hende ", " ham ")
+                    .Replace(" Ham/hende ", " Ham ")
+                    .Replace(" hans/hendes ", " hans ")
+                    .Replace(" Hans/hendes ", " Hans ")
+                    .Replace(" Navn ", " " + strNameToUse + " ")
+                    .Replace(" Navnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" han/hun ", " hun ")
+                    .Replace(" Han/hun ", " Hun ")
+                    .Replace(" ham/hende ", " hende ")
+                    .Replace(" Ham/hende ", " Hende ")
+                    .Replace(" hans/hendes ", " hendes ")
+                    .Replace(" Hans/hendes ", " Hendes ")
+                    .Replace(" Navn ", " " + strNameToUse + " ")
+                    .Replace(" Navnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+            else
+            {
+                // Neutral: only insert the name
+                strCurrentText = strCurrentText
+                    .Replace(" Navn ", " " + strNameToUse + " ")
+                    .Replace(" Navnets ", " " + strNameToUse + strGenitiveEnding + " ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
+        }
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Japanese
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_Japanese(TextBox tbxToAdapt)
+        {
+            string strCurrentText = " " + tbxToAdapt.Text.Replace("。", " 。") + " ";
+
+            string strName = m_tbxName.Text.Trim();
+            if (string.IsNullOrWhiteSpace(strName))
+                strName = "名前未設定"; // „Name not set“
+
+            // polite suffix
+            string strHonorificSuffix = "さん";
+            string strFullName = strName + strHonorificSuffix;
+
+            if (m_chkAddName.Checked && !strCurrentText.Contains("名前"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " 彼/彼女 ", " 彼の/彼女の ", " 彼を/彼女を "})
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" 彼/彼女 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" 彼の/彼女の ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 名前の " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    if (" 彼を/彼女を ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 名前を " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 名前 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // insert name
+            strCurrentText = strCurrentText.Replace("名前", strFullName);
+
+            // gender - specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 彼の/彼女の ", " 彼の ")
+                    .Replace( "彼を/彼女を ", " 彼を ")
+                    .Replace(" 彼/彼女 ", " 彼 ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 彼の/彼女の ", " 彼女の ")
+                    .Replace(" 彼を/彼女を ", " 彼女を ")
+                    .Replace(" 彼/彼女 ", " 彼女 ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" 。", "。");
+        }
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Korean
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_Korean(TextBox tbxToAdapt)
+        {
+            // Add spaces around the Korean sentence-ending period " ."
+            string strCurrentText = " " + tbxToAdapt.Text.Replace(".", " .") + " ";
+
+            string strName = m_tbxName.Text.Trim();
+            if (string.IsNullOrWhiteSpace(strName))
+                strName = "이름미설정"; // "Name not set"
+
+            // polite suffix
+            string strHonorificSuffix = "씨";
+            string strFullName = strName + strHonorificSuffix;
+
+            // Insert name instead of pronouns (only first occurrence)
+            if (m_chkAddName.Checked && !strCurrentText.Contains("이름"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " 그/그녀 ", " 그의/그녀의 ", " 그를/그녀를 "})
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" 그/그녀 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" 그의/그녀의 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 이름의 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else if (" 그를/그녀를 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 이름을 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 이름 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // Insert name
+            strCurrentText = strCurrentText.Replace("이름", strFullName);
+
+            // Gender-specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 그의/그녀의 ", " 그의 ")
+                    .Replace(" 그를/그녀를 ", " 그를 ")
+                    .Replace(" 그/그녀 ", " 그 ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 그의/그녀의 ", " 그녀의 ")
+                    .Replace(" 그를/그녀를 ", " 그녀를 ")
+                    .Replace(" 그/그녀 ", " 그녀 ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
+        }
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Simplified Chinese (PRC)
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_ChineseSimplified(TextBox tbxToAdapt)
+        {
+            // Add spaces around the Chinese sentence-ending period "。"
+            string strCurrentText = " " + tbxToAdapt.Text.Replace("。", " 。") + " ";
+
+            string strName = m_tbxName.Text.Trim();
+            if (string.IsNullOrWhiteSpace(strName))
+                strName = "姓名未设置"; // "Name not set"
+
+            // Chinese does not use honorific suffixes like Japanese/Korean
+            string strFullName = strName;
+
+            // Insert name instead of pronouns (only first occurrence)
+            if (m_chkAddName.Checked && !strCurrentText.Contains("姓名"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " 他/她 ", " 他的/她的 " })
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" 他/她 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" 他的/她的 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 姓名的 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else if (" 他/她 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        // object or subject form
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 姓名 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // Insert name
+            strCurrentText = strCurrentText.Replace("姓名", strFullName);
+
+            // Gender-specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 他的/她的 ", " 他的 ")
+                    .Replace(" 他/她 ", " 他 ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 他的/她的 ", " 她的 ")
+                    .Replace(" 他/她 ", " 她 ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" 。", "。");
+        }
+
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts texts in textboxes to given genders and names in Traditional Chinese (Taiwan)
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox for adaptation of text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_ChineseTraditional(TextBox tbxToAdapt)
+        {
+            // Add spaces around the Chinese sentence-ending period "。"
+            string strCurrentText = " " + tbxToAdapt.Text.Replace("。", " 。") + " ";
+
+            string strName = m_tbxName.Text.Trim();
+            if (string.IsNullOrWhiteSpace(strName))
+                strName = "姓名未設定"; // "Name not set"
+
+            // Traditional Chinese does not use honorific suffixes like Japanese/Korean
+            string strFullName = strName;
+
+            // Insert name instead of pronouns (only first occurrence)
+            if (m_chkAddName.Checked && !strCurrentText.Contains("姓名"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " 他/她 ", " 他的/她的 " }) // object form same as subject
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" 他/她 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" 他的/她的 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 姓名的 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else if (" 他/她 ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        // subject or object form
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " 姓名 " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            // Insert name
+            strCurrentText = strCurrentText.Replace("姓名", strFullName);
+
+            // Gender-specific adaptation
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 他的/她的 ", " 他的 ")
+                    .Replace(" 他/她 ", " 他 ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" 他的/她的 ", " 她的 ")
+                    .Replace(" 他/她 ", " 她 ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" 。", "。");
+        }
+
+
         //===================================================================================================
         /// <summary>
         /// Some of russian declination cases
@@ -1230,6 +1947,406 @@ namespace School_Report
 
             tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
         }
+
+
+
+        enum PolishCase { 
+            Nominative, 
+            Genitive,
+            Dative, 
+            Accusative 
+        }
+
+
+        //===================================================================================================
+        /// <summary>
+        /// Declines Polish names 
+        /// </summary>
+        /// <param name="strName">The name to decline</param>
+        /// <param name="bIsMale">Is the name male</param>
+        /// <param name="eTargetCase">The case</param>
+        /// <returns>Declined name</returns>
+        //===================================================================================================
+        string DeclinePolishName(string strName, bool bIsMale, PolishCase eTargetCase)
+        {
+            if (string.IsNullOrWhiteSpace(strName))
+                return strName;
+
+            string strResultingName = strName.Trim();
+            string strLower = strResultingName.ToLower();
+
+            // ---------------------------
+            // FEMALE NAMES
+            // ---------------------------
+            if (!bIsMale)
+            {
+                // Anna → Anny, Annie, Annę
+                if (strLower.EndsWith("a"))
+                {
+                    string strStem = strResultingName.Substring(0, strResultingName.Length - 1);
+
+                    switch (eTargetCase)
+                    {
+                        case PolishCase.Genitive: return strStem + "y";
+                        case PolishCase.Dative: return strStem + "ie";
+                        case PolishCase.Accusative: return strStem + "ę";
+                    }
+                }
+
+                // Maria → Marii, Marii, Marię
+                if (strLower.EndsWith("ia"))
+                {
+                    string strStem = strResultingName.Substring(0, strResultingName.Length - 2);
+
+                    switch (eTargetCase)
+                    {
+                        case PolishCase.Genitive: return strStem + "ii";
+                        case PolishCase.Dative: return strStem + "ii";
+                        case PolishCase.Accusative: return strStem + "ię";
+                    }
+                }
+
+                // consonant-ending female names (Beatrycze, Ingrid)
+                return strResultingName;
+            }
+
+            // ---------------------------
+            // MALE NAMES
+            // ---------------------------
+
+            // Kuba → Kuby, Kubie, Kubę
+            if (strLower.EndsWith("a"))
+            {
+                string stem = strResultingName.Substring(0, strResultingName.Length - 1);
+
+                switch (eTargetCase)
+                {
+                    case PolishCase.Genitive: return stem + "y";
+                    case PolishCase.Dative: return stem + "ie";
+                    case PolishCase.Accusative: return stem + "ę";
+                }
+            }
+
+            // Marek → Marka, Markowi, Marka
+            if (strLower.EndsWith("ek"))
+            {
+                string stem = strResultingName.Substring(0, strResultingName.Length - 2); // remove "ek" → "Marek" → "Mar"
+
+                switch (eTargetCase)
+                {
+                    case PolishCase.Genitive: return stem + "ka";
+                    case PolishCase.Dative: return stem + "kowi";
+                    case PolishCase.Accusative: return stem + "ka";
+                }
+            }
+
+            // Paweł → Pawła, Pawłowi, Pawła
+            if (strLower.EndsWith("eł") || strLower.EndsWith("el"))
+            {
+                string stem = strResultingName.Substring(0, strResultingName.Length - 1);
+
+                switch (eTargetCase)
+                {
+                    case PolishCase.Genitive: return stem + "a";
+                    case PolishCase.Dative: return stem + "owi";
+                    case PolishCase.Accusative: return stem + "a";
+                }
+            }
+
+            // Adam → Adama, Adamowi, Adama
+            if (char.IsLetter(strResultingName.Last()))
+            {
+                switch (eTargetCase)
+                {
+                    case PolishCase.Genitive: return strResultingName + "a";
+                    case PolishCase.Dative: return strResultingName + "owi";
+                    case PolishCase.Accusative: return strResultingName + "a";
+                }
+            }
+
+            return strResultingName;
+        }
+
+        void AdaptTextToGenderAndName_Polish(TextBox tbxToAdapt)
+        {
+            string strCurrentText = " " + tbxToAdapt.Text.Replace(".", " .") + " ";
+
+            if (m_chkAddName.Checked && !strCurrentText.Contains("Imię"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " On/ona ", " Jemu/jej ", " Jego/jej ", " Swoje/swoją/swojego " })
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" On/ona ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" Swoje/swoją/swojego ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Imienia " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else if (" Jemu/jej ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " ImieniuD " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else if (" Jego/jej ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " ImieniaW " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Imię " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            string strNameToUse = m_tbxName.Text;
+            if (string.IsNullOrWhiteSpace(strNameToUse))
+                strNameToUse = "IMIĘ BRAKUJE";
+
+            if (m_rbMale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" on/ona ", " on ")
+                    .Replace(" On/ona ", " On ")
+                    .Replace(" jemu/jej ", " jemu ")
+                    .Replace(" Jemu/jej ", " Jemu ")
+                    .Replace(" jego/jej ", " jego ")
+                    .Replace(" Jego/jej ", " Jego ")
+                    .Replace(" Imię ", " " + strNameToUse + " ")
+                    .Replace(" Imienia ", " " + DeclinePolishName(strNameToUse, true, PolishCase.Genitive) + " ")
+                    .Replace(" ImieniuD ", " " + DeclinePolishName(strNameToUse, true, PolishCase.Dative) + " ")
+                    .Replace(" ImieniaW ", " " + DeclinePolishName(strNameToUse, true, PolishCase.Accusative) + " ");
+            }
+            else if (m_rbFemale.Checked)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" on/ona ", " ona ")
+                    .Replace(" On/ona ", " Ona ")
+                    .Replace(" jemu/jej ", " jej ")
+                    .Replace(" Jemu/jej ", " Jej ")
+                    .Replace(" jego/jej ", " jej ")
+                    .Replace(" Jego/jej ", " Jej ")
+                    .Replace(" Imię ", " " + strNameToUse + " ")
+                    .Replace(" Imienia ", " " + DeclinePolishName(strNameToUse, false, PolishCase.Genitive) + " ")
+                    .Replace(" ImieniuD ", " " + DeclinePolishName(strNameToUse, false, PolishCase.Dative) + " ")
+                    .Replace(" ImieniaW ", " " + DeclinePolishName(strNameToUse, false, PolishCase.Accusative) + " ");
+            }
+            else
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" Imię ", " " + strNameToUse + " ")
+                    .Replace(" Imienia ", " " + DeclinePolishName(strNameToUse, m_rbFemale.Checked, PolishCase.Genitive) + " ")
+                    .Replace(" ImieniuD ", " " + DeclinePolishName(strNameToUse, m_rbMale.Checked, PolishCase.Dative) + " ")
+                    .Replace(" ImieniaW ", " " + DeclinePolishName(strNameToUse, m_rbMale.Checked, PolishCase.Accusative) + " ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
+        }
+
+
+        enum FinnishCase
+        {
+            Nominative, 
+            Genitive, 
+            Allative,
+            Accusative
+        }
+
+        //===================================================================================================
+        /// <summary>
+        /// Declines names according to Finnish rules
+        /// </summary>
+        /// <param name="strName">The name to transform</param>
+        /// <param name="bIsMale">Indicates if the name is male</param>
+        /// <param name="eTargetCase">The case</param>
+        /// <returns>Declined name</returns>
+        //===================================================================================================
+        string DeclineFinnishName(string strName, bool bIsMale, FinnishCase eTargetCase)
+        {
+            if (string.IsNullOrWhiteSpace(strName))
+                return strName;
+
+            string strLower = strName.ToLower();
+
+            // Helper: consonant gradation (very simplified)
+            string Gradate(string stem)
+            {
+                return stem
+                    .Replace("kk", "k")
+                    .Replace("pp", "p")
+                    .Replace("tt", "t")
+                    .Replace("k", "v"); // extremely simplified
+            }
+
+            // -------------------------
+            // Names ending in -i (Matti, Mikki, Jari)
+            // -------------------------
+            if (strLower.EndsWith("i"))
+            {
+                string stem = strName.Substring(0, strName.Length - 1);
+
+                switch (eTargetCase)
+                {
+                    case FinnishCase.Genitive: return Gradate(stem) + "in";
+                    case FinnishCase.Allative: return Gradate(stem) + "ille";
+                    case FinnishCase.Accusative: return Gradate(stem) + "in";
+                }
+            }
+
+            // -------------------------
+            // Names ending in -a / -ä (Saara, Aila, Aino)
+            // -------------------------
+            if (strLower.EndsWith("a") || strLower.EndsWith("ä"))
+            {
+                string stem = strName.Substring(0, strName.Length - 1);
+
+                switch (eTargetCase)
+                {
+                    case FinnishCase.Genitive: return stem + "n";
+                    case FinnishCase.Allative: return stem + "lle";
+                    case FinnishCase.Accusative: return stem + "a";
+                }
+            }
+
+            // -------------------------
+            // Names ending in -o / -ö / -u / -y (Mikko, Heikki, Tapio)
+            // -------------------------
+            if ("oöuy".Contains(strLower.Last()))
+            {
+                string stem = strName.Substring(0, strName.Length - 1);
+
+                switch (eTargetCase)
+                {
+                    case FinnishCase.Genitive: return stem + "n";
+                    case FinnishCase.Allative: return stem + "lle";
+                    case FinnishCase.Accusative: return stem + "n";
+                }
+            }
+
+            // -------------------------
+            // Names ending in consonant (rare but possible)
+            // -------------------------
+            if (char.IsLetter(strName.Last()))
+            {
+                switch (eTargetCase)
+                {
+                    case FinnishCase.Genitive: return strName + "in";
+                    case FinnishCase.Allative: return strName + "ille";
+                    case FinnishCase.Accusative: return strName + "in";
+                }
+            }
+
+            return strName;
+        }
+
+
+        //===================================================================================================
+        /// <summary>
+        /// Adapts text of a textbox, according to Finnish rules
+        /// </summary>
+        /// <param name="tbxToAdapt">Textbox to adapt the text</param>
+        //===================================================================================================
+        void AdaptTextToGenderAndName_Finnish(TextBox tbxToAdapt)
+        {
+            string strCurrentText = " " + tbxToAdapt.Text.Replace(".", " .") + " ";
+
+            if (m_chkAddName.Checked && !strCurrentText.Contains("Nimi"))
+            {
+                string? strToReplace = null;
+                int nPosToReplace = -1;
+
+                foreach (string strTextToSearch in new string[]
+                                { " Hän ", " Hänelle ", " Hänen ", " Oma/omansa " })
+                {
+                    int nPos = strCurrentText.IndexOf(strTextToSearch, StringComparison.CurrentCultureIgnoreCase);
+                    if (nPos >= 0 && (nPos < nPosToReplace || nPosToReplace < 0) &&
+                        (strToReplace == null || !" Hän ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        strToReplace = strCurrentText.Substring(nPos, strTextToSearch.Length);
+                        nPosToReplace = nPos;
+                    }
+                }
+
+                if (strToReplace != null)
+                {
+                    if (" Oma/omansa ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Nimen " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else if (" Hänelle ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Nimelle " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else if (" Hänen ".Equals(strToReplace, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " NimenG " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                    else
+                    {
+                        strCurrentText = strCurrentText.Substring(0, nPosToReplace) + " Nimi " +
+                            strCurrentText.Substring(nPosToReplace + strToReplace.Length);
+                    }
+                }
+            }
+
+            string strNameToUse = m_tbxName.Text;
+            if (string.IsNullOrWhiteSpace(strNameToUse))
+                strNameToUse = "NIMI PUUTTUU";
+
+            bool bMale = m_rbMale.Checked;
+            bool bFemale = m_rbFemale.Checked;
+
+            if (bMale)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" Hän ", " hän ")
+                    .Replace(" Hänelle ", " hänelle ")
+                    .Replace(" Hänen ", " hänen ")
+                    .Replace(" Nimi ", " " + strNameToUse + " ")
+                    .Replace(" Nimen ", " " + DeclineFinnishName(strNameToUse, true, FinnishCase.Genitive) + " ")
+                    .Replace(" Nimelle ", " " + DeclineFinnishName(strNameToUse, true, FinnishCase.Allative) + " ")
+                    .Replace(" NimenG ", " " + DeclineFinnishName(strNameToUse, true, FinnishCase.Genitive) + " ");
+            }
+            else if (bFemale)
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" Hän ", " hän ")
+                    .Replace(" Hänelle ", " hänelle ")
+                    .Replace(" Hänen ", " hänen ")
+                    .Replace(" Nimi ", " " + strNameToUse + " ")
+                    .Replace(" Nimen ", " " + DeclineFinnishName(strNameToUse, false, FinnishCase.Genitive) + " ")
+                    .Replace(" Nimelle ", " " + DeclineFinnishName(strNameToUse, false, FinnishCase.Allative) + " ")
+                    .Replace(" NimenG ", " " + DeclineFinnishName(strNameToUse, false, FinnishCase.Genitive) + " ");
+            }
+            else
+            {
+                strCurrentText = strCurrentText
+                    .Replace(" Nimi ", " " + strNameToUse + " ")
+                    .Replace(" Nimen ", " " + DeclineFinnishName(strNameToUse, bMale, FinnishCase.Genitive) + " ")
+                    .Replace(" Nimelle ", " " + DeclineFinnishName(strNameToUse, bMale, FinnishCase.Allative) + " ")
+                    .Replace(" NimenG ", " " + DeclineFinnishName(strNameToUse, bMale, FinnishCase.Genitive) + " ");
+            }
+
+            tbxToAdapt.Text = strCurrentText.Trim().Replace(" .", ".");
+        }
+
 
         //===================================================================================================
         /// <summary>
