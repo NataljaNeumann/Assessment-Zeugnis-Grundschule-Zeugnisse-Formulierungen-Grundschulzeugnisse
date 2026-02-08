@@ -234,6 +234,7 @@ namespace School_Report
                         if (string.IsNullOrWhiteSpace(strValue))
                             throw new Exception($"Missing 'strText' attribute in <assessment> element under <point strCaption='{strCaption}'>");
 
+                        /*
                         strValue = strValue.Replace("Du", "er/sie", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("Deinen", "seinen/ihren", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("Deinem", "seinem/ihrem", StringComparison.InvariantCultureIgnoreCase)
@@ -242,7 +243,9 @@ namespace School_Report
                             .Replace("Dich", "sich", StringComparison.InvariantCultureIgnoreCase)
                             .Replace("hast", "hat").Replace("bist", "ist").Replace("st ", " ");
 
+
                         strValue = char.ToUpper(strValue[0]) + strValue.Substring(1);
+                         */
 
                         oTexts.Add(new AssessmentText(strNId != null ? int.Parse(strNId) : (++nMaxId), strValue));
                     }
