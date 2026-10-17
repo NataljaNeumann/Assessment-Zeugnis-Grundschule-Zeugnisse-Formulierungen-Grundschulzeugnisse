@@ -180,72 +180,6 @@
   <data name="m_ctlGroupBoxGender.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;m_rbDiverse.Name" xml:space="preserve">
-    <value>m_rbDiverse</value>
-  </data>
-  <data name="&gt;&gt;m_rbDiverse.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_rbDiverse.Parent" xml:space="preserve">
-    <value>m_ctlGroupBoxGender</value>
-  </data>
-  <data name="&gt;&gt;m_rbDiverse.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;m_rbFemale.Name" xml:space="preserve">
-    <value>m_rbFemale</value>
-  </data>
-  <data name="&gt;&gt;m_rbFemale.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_rbFemale.Parent" xml:space="preserve">
-    <value>m_ctlGroupBoxGender</value>
-  </data>
-  <data name="&gt;&gt;m_rbFemale.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;m_rbMale.Name" xml:space="preserve">
-    <value>m_rbMale</value>
-  </data>
-  <data name="&gt;&gt;m_rbMale.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_rbMale.Parent" xml:space="preserve">
-    <value>m_ctlGroupBoxGender</value>
-  </data>
-  <data name="&gt;&gt;m_rbMale.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="m_ctlGroupBoxGender.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="m_ctlGroupBoxGender.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
-  </data>
-  <data name="m_ctlGroupBoxGender.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 48</value>
-  </data>
-  <data name="m_ctlGroupBoxGender.Size" type="System.Drawing.Size, System.Drawing">
-    <value>766, 84</value>
-  </data>
-  <data name="m_ctlGroupBoxGender.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="m_ctlGroupBoxGender.Text" xml:space="preserve">
-    <value>Gender</value>
-  </data>
-  <data name="&gt;&gt;m_ctlGroupBoxGender.Name" xml:space="preserve">
-    <value>m_ctlGroupBoxGender</value>
-  </data>
-  <data name="&gt;&gt;m_ctlGroupBoxGender.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_ctlGroupBoxGender.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;m_ctlGroupBoxGender.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="m_rbDiverse.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -336,71 +270,38 @@
   <data name="&gt;&gt;m_rbMale.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="m_ctlReportParts.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageCommunity.Name" xml:space="preserve">
-    <value>m_ctlTabPageCommunity</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageCommunity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageCommunity.Parent" xml:space="preserve">
-    <value>m_ctlReportParts</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageCommunity.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageWorkHabits.Name" xml:space="preserve">
-    <value>m_ctlTabPageWorkHabits</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageWorkHabits.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageWorkHabits.Parent" xml:space="preserve">
-    <value>m_ctlReportParts</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTabPageWorkHabits.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTTabPageLearning.Name" xml:space="preserve">
-    <value>m_ctlTTabPageLearning</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTTabPageLearning.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTTabPageLearning.Parent" xml:space="preserve">
-    <value>m_ctlReportParts</value>
-  </data>
-  <data name="&gt;&gt;m_ctlTTabPageLearning.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="m_ctlReportParts.Enabled" type="System.Boolean, mscorlib">
+  <data name="m_ctlGroupBoxGender.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="m_ctlReportParts.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="m_ctlGroupBoxGender.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
   </data>
-  <data name="m_ctlReportParts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, 138</value>
+  <data name="m_ctlGroupBoxGender.Location" type="System.Drawing.Point, System.Drawing">
+    <value>248, 48</value>
   </data>
-  <data name="m_ctlReportParts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1044, 40</value>
+  <data name="m_ctlGroupBoxGender.Size" type="System.Drawing.Size, System.Drawing">
+    <value>766, 84</value>
   </data>
-  <data name="m_ctlReportParts.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="m_ctlGroupBoxGender.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;m_ctlReportParts.Name" xml:space="preserve">
-    <value>m_ctlReportParts</value>
+  <data name="m_ctlGroupBoxGender.Text" xml:space="preserve">
+    <value>Gender</value>
   </data>
-  <data name="&gt;&gt;m_ctlReportParts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;m_ctlGroupBoxGender.Name" xml:space="preserve">
+    <value>m_ctlGroupBoxGender</value>
   </data>
-  <data name="&gt;&gt;m_ctlReportParts.Parent" xml:space="preserve">
+  <data name="&gt;&gt;m_ctlGroupBoxGender.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_ctlGroupBoxGender.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;m_ctlReportParts.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;m_ctlGroupBoxGender.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="m_ctlReportParts.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="m_ctlTabPageCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -484,8 +385,38 @@
   <data name="&gt;&gt;m_ctlTTabPageLearning.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="m_ctlReportParts.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="m_ctlReportParts.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="m_ctlReportParts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 138</value>
+  </data>
+  <data name="m_ctlReportParts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1044, 40</value>
+  </data>
+  <data name="m_ctlReportParts.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;m_ctlReportParts.Name" xml:space="preserve">
+    <value>m_ctlReportParts</value>
+  </data>
+  <data name="&gt;&gt;m_ctlReportParts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_ctlReportParts.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;m_ctlReportParts.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="m_btnCreateNextWorseCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
+  </data>
+  <data name="m_btnCreateNextWorseCommunity.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="m_btnCreateNextWorseCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -517,6 +448,9 @@
   <data name="m_btnCreateNextBetterCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
+  <data name="m_btnCreateNextBetterCommunity.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="m_btnCreateNextBetterCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
@@ -547,6 +481,9 @@
   <data name="m_btnNextWorseCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="m_btnNextWorseCommunity.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="m_btnNextWorseCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
@@ -573,6 +510,9 @@
   </data>
   <data name="&gt;&gt;m_btnNextWorseCommunity.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="m_btnNextBestCommunity.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="m_btnNextBestCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -663,6 +603,9 @@
   </data>
   <data name="m_tbxCurrentTextCommunity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="m_tbxCurrentTextCommunity.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="m_tbxCurrentTextCommunity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14.25pt</value>
@@ -796,6 +739,9 @@
   <data name="&gt;&gt;m_lblCurrentPoint.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="m_btnAddCurrentText.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="m_btnAddCurrentText.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
@@ -822,6 +768,9 @@
   </data>
   <data name="&gt;&gt;m_btnAddCurrentText.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="m_ctlUpDownPoints.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="m_ctlUpDownPoints.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -856,6 +805,9 @@
   <data name="m_chkAddName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="m_chkAddName.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="m_chkAddName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
@@ -889,6 +841,39 @@
   <data name="m_oMenuStrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
   </data>
+  <data name="m_oChooseTextsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 24</value>
+  </data>
+  <data name="m_oChooseTextsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Choose Texts</value>
+  </data>
+  <data name="m_oAboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 24</value>
+  </data>
+  <data name="m_oAboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>About School Report</value>
+  </data>
+  <data name="m_oLicenseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 24</value>
+  </data>
+  <data name="m_oLicenseToolStripMenuItem.Text" xml:space="preserve">
+    <value>License (GPL 2)</value>
+  </data>
+  <data name="m_oSelectFontToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 24</value>
+  </data>
+  <data name="m_oSelectFontToolStripMenuItem.Text" xml:space="preserve">
+    <value>Select Font</value>
+  </data>
+  <data name="m_oNextToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="m_oNextToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 24</value>
+  </data>
+  <data name="m_oNextToolStripMenuItem.Text" xml:space="preserve">
+    <value>Next</value>
+  </data>
   <data name="m_oMenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -909,24 +894,6 @@
   </data>
   <data name="&gt;&gt;m_oMenuStrip.ZOrder" xml:space="preserve">
     <value>18</value>
-  </data>
-  <data name="m_oChooseTextsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 24</value>
-  </data>
-  <data name="m_oChooseTextsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Choose Texts</value>
-  </data>
-  <data name="m_oAboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 24</value>
-  </data>
-  <data name="m_oAboutToolStripMenuItem.Text" xml:space="preserve">
-    <value>About School Report</value>
-  </data>
-  <data name="m_oLicenseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 24</value>
-  </data>
-  <data name="m_oLicenseToolStripMenuItem.Text" xml:space="preserve">
-    <value>License (GPL 2)</value>
   </data>
   <data name="m_btnCopyFullText.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt</value>
@@ -958,6 +925,9 @@
   <data name="&gt;&gt;m_btnCopyFullText.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="m_oFontDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>285, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -999,6 +969,24 @@
   </data>
   <data name="&gt;&gt;m_oLicenseToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_oSelectFontToolStripMenuItem.Name" xml:space="preserve">
+    <value>m_oSelectFontToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;m_oSelectFontToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_oNextToolStripMenuItem.Name" xml:space="preserve">
+    <value>m_oNextToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;m_oNextToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;m_oFontDialog.Name" xml:space="preserve">
+    <value>m_oFontDialog</value>
+  </data>
+  <data name="&gt;&gt;m_oFontDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FontDialog, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SchoolReportForm</value>

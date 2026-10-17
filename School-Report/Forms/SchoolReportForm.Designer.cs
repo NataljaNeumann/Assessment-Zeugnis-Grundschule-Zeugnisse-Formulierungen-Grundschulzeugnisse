@@ -57,7 +57,10 @@
             m_oChooseTextsToolStripMenuItem = new ToolStripMenuItem();
             m_oAboutToolStripMenuItem = new ToolStripMenuItem();
             m_oLicenseToolStripMenuItem = new ToolStripMenuItem();
+            m_oSelectFontToolStripMenuItem = new ToolStripMenuItem();
+            m_oNextToolStripMenuItem = new ToolStripMenuItem();
             m_btnCopyFullText = new Button();
+            m_oFontDialog = new FontDialog();
             m_ctlGroupBoxGender.SuspendLayout();
             m_ctlReportParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)m_ctlUpDownPoints).BeginInit();
@@ -196,6 +199,7 @@
             m_tbxTextCommunity.BackColor = SystemColors.ControlLightLight;
             m_tbxTextCommunity.Name = "m_tbxTextCommunity";
             m_tbxTextCommunity.ReadOnly = true;
+            m_tbxTextCommunity.TextChanged += OnTextCommunity_TextChanged;
             // 
             // m_dlgSelectFile
             // 
@@ -233,7 +237,7 @@
             // m_oMenuStrip
             // 
             resources.ApplyResources(m_oMenuStrip, "m_oMenuStrip");
-            m_oMenuStrip.Items.AddRange(new ToolStripItem[] { m_oChooseTextsToolStripMenuItem, m_oAboutToolStripMenuItem, m_oLicenseToolStripMenuItem });
+            m_oMenuStrip.Items.AddRange(new ToolStripItem[] { m_oChooseTextsToolStripMenuItem, m_oAboutToolStripMenuItem, m_oLicenseToolStripMenuItem, m_oSelectFontToolStripMenuItem, m_oNextToolStripMenuItem });
             m_oMenuStrip.Name = "m_oMenuStrip";
             // 
             // m_oChooseTextsToolStripMenuItem
@@ -255,6 +259,18 @@
             m_oLicenseToolStripMenuItem.Name = "m_oLicenseToolStripMenuItem";
             resources.ApplyResources(m_oLicenseToolStripMenuItem, "m_oLicenseToolStripMenuItem");
             m_oLicenseToolStripMenuItem.Click += OnLicenseToolStripMenuItem_Click;
+            // 
+            // m_oSelectFontToolStripMenuItem
+            // 
+            m_oSelectFontToolStripMenuItem.Name = "m_oSelectFontToolStripMenuItem";
+            resources.ApplyResources(m_oSelectFontToolStripMenuItem, "m_oSelectFontToolStripMenuItem");
+            m_oSelectFontToolStripMenuItem.Click += OnSelectFontMenuItem_Click;
+            // 
+            // m_oNextToolStripMenuItem
+            // 
+            resources.ApplyResources(m_oNextToolStripMenuItem, "m_oNextToolStripMenuItem");
+            m_oNextToolStripMenuItem.Name = "m_oNextToolStripMenuItem";
+            m_oNextToolStripMenuItem.Click += OnNextToolStripMenuItem_Click;
             // 
             // m_btnCopyFullText
             // 
@@ -329,5 +345,8 @@
         private ToolStripMenuItem m_oAboutToolStripMenuItem;
         private ToolStripMenuItem m_oLicenseToolStripMenuItem;
         private Button m_btnCopyFullText;
+        private ToolStripMenuItem m_oSelectFontToolStripMenuItem;
+        private FontDialog m_oFontDialog;
+        private ToolStripMenuItem m_oNextToolStripMenuItem;
     }
 }

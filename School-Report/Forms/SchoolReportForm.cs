@@ -85,12 +85,19 @@ namespace School_Report
 
         //===================================================================================================
         /// <summary>
+        /// The texts of the different secitions
+        /// </summary>
+        Dictionary<string, string> m_oSectionTexts = new Dictionary<string, string>();
+
+        //===================================================================================================
+        /// <summary>
         /// Constructs a new school report object
         /// </summary>
         //===================================================================================================
         public SchoolReportForm()
         {
             InitializeComponent();
+            SetFont();
         }
 
         //===================================================================================================
@@ -139,8 +146,20 @@ namespace School_Report
 
                 if (m_strCurrentSection.Length > 0)
                 {
-                    InitCurrentPoint();
+                    m_ctlUpDownPoints.Minimum = 0;
+                    m_ctlUpDownPoints.Maximum = m_oTexts[m_strCurrentSection].Keys.Count - 1;
                     m_ctlReportParts.Enabled = true;
+                    m_btnAddCurrentText.Enabled = true;
+                    m_ctlUpDownPoints.Enabled = true;
+                    m_tbxCurrentTextCommunity.Enabled = true;
+                    m_btnNextWorseCommunity.Enabled = true;
+                    m_btnNextBestCommunity.Enabled = true;
+                    m_btnCreateNextWorseCommunity.Enabled = true;
+                    m_btnCreateNextBetterCommunity.Enabled = true;
+                    m_chkAddName.Enabled = true;
+                    m_oNextToolStripMenuItem.Enabled = true;
+                    m_ctlUpDownPoints.Enabled = true;
+                    InitCurrentPoint();
                 }
             }
         }
@@ -375,7 +394,16 @@ namespace School_Report
             {
                 m_strCurrentSection = m_ctlReportParts.SelectedTab.Text;
                 m_ctlUpDownPoints.Minimum = 0;
-                m_ctlUpDownPoints.Maximum = m_oTexts[m_strCurrentSection].Keys.Count;
+                m_ctlUpDownPoints.Maximum = m_oTexts[m_strCurrentSection].Keys.Count - 1;
+                if (m_oSectionTexts.ContainsKey(m_strCurrentSection))
+                {
+                    m_tbxTextCommunity.Text = m_oSectionTexts[m_strCurrentSection];
+                } else
+                {
+                    m_tbxTextCommunity.Text = string.Empty;
+                }
+
+                m_ctlUpDownPoints.Value = 0;
                 InitCurrentPoint();
             }
         }
@@ -644,7 +672,7 @@ namespace School_Report
                     .Replace(" Seinem/ihrem ", " Seinem ")
                     .Replace(" seinem/ihrem ", " seinem ")
                     .Replace(" Name ", " " + strNameToUse + " ")
-                    .Replace(" Namens ", " " + strNameToUse + strGenitivEnding +" ");
+                    .Replace(" Namens ", " " + strNameToUse + strGenitivEnding + " ");
             }
             else
                 if (m_rbFemale.Checked)
@@ -1510,7 +1538,7 @@ namespace School_Report
             {
                 strCurrentText = strCurrentText
                     .Replace(" 彼の/彼女の ", " 彼の ")
-                    .Replace( "彼を/彼女を ", " 彼を ")
+                    .Replace("彼を/彼女を ", " 彼を ")
                     .Replace(" 彼/彼女 ", " 彼 ");
             }
             else if (m_rbFemale.Checked)
@@ -1950,11 +1978,12 @@ namespace School_Report
 
 
 
-        enum PolishCase { 
-            Nominative, 
+        enum PolishCase
+        {
+            Nominative,
             Genitive,
-            Dative, 
-            Accusative 
+            Dative,
+            Accusative
         }
 
 
@@ -2160,8 +2189,8 @@ namespace School_Report
 
         enum FinnishCase
         {
-            Nominative, 
-            Genitive, 
+            Nominative,
+            Genitive,
             Allative,
             Accusative
         }
@@ -2411,6 +2440,8 @@ namespace School_Report
             {
                 m_ctlUpDownPoints.Value = m_nCurrentPoint + 1;
             }
+
+            m_chkAddName.Checked = false;
         }
 
 
@@ -2687,5 +2718,305 @@ namespace School_Report
             }
         }
 
+        //===================================================================================================
+        /// <summary>
+        // Plan / Pseudocode:
+        // 1. Read saved font from settings ("TextFont").
+        //    - Try to read it as a System.Drawing.Font.
+        //    - If not present, try to read it as a serialized string and convert with FontConverter.
+        //    - If still not available or empty, create a fallback font: "Cambie", 14pt, Regular.
+        // 2. Set m_oFontDialog.Font to the resolved initial font.
+        // 3. Show the font dialog. If user clicks OK:
+        //    - Obtain the selected font from the dialog.
+        //    - Save the font back into settings:
+        //        * If the settings property "TextFont" exists and is of type Font, save the Font directly.
+        //        * If the settings property "TextFont" exists and is a string, serialize using FontConverter and store the string.
+        //        * Otherwise attempt to set via the indexer and fall back to storing a string.
+        //    - Call settings.Save() to persist the change.
+        // 4. Handle errors quietly (no crash) and keep behavior deterministic.
+        //
+        // Implementation:
+        // - Use System.Drawing.Font and System.Drawing.FontConverter qualified names to avoid adding using lines.
+        // - Use reflection to detect typed property "TextFont" on Properties.Settings.Default and choose appropriate storage.
+        // - Fallbacks are conservative to maximize compatibility with various settings schemas.
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnSelectFontMenuItem_Click(
+            object oSender, 
+            EventArgs oArgs)
+        {
+            // Resolve settings instance
+            var oSettings = Properties.Settings.Default;
+            var oFontConverter = new System.Drawing.FontConverter();
+
+            // Try to get stored value
+            object? oStored = null;
+            try
+            {
+                oStored = oSettings["TextFont"];
+            }
+            catch
+            {
+                oStored = null;
+            }
+
+            // Determine initial font
+            System.Drawing.Font oInitialFont;
+            if (oStored != null && oStored is System.Drawing.Font oStoredFont)
+            {
+                oInitialFont = oStoredFont;
+            }
+            else if (oStored is string sStored && !string.IsNullOrWhiteSpace(sStored))
+            {
+                try
+                {
+                    oInitialFont = (System.Drawing.Font)oFontConverter.ConvertFromString(sStored)!;
+                }
+                catch
+                {
+                    oInitialFont = new System.Drawing.Font("Segoe UI", 14.25f, System.Drawing.FontStyle.Regular);
+                }
+            }
+            else
+            {
+                oInitialFont = new System.Drawing.Font("Segoe UI", 14.25f, System.Drawing.FontStyle.Regular);
+            }
+
+            // Configure and show dialog
+            if (m_oFontDialog != null)
+            {
+                m_oFontDialog.Font = oInitialFont;
+
+                if (m_oFontDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    var selectedFont = m_oFontDialog.Font ?? oInitialFont;
+
+                    // Try strong-typed property first using reflection
+                    try
+                    {
+                        var settingsType = oSettings.GetType();
+                        var propInfo = settingsType.GetProperty("TextFont");
+                        if (propInfo != null && propInfo.CanWrite)
+                        {
+                            if (propInfo.PropertyType == typeof(System.Drawing.Font))
+                            {
+                                propInfo.SetValue(oSettings, selectedFont);
+                            }
+                            else if (propInfo.PropertyType == typeof(string))
+                            {
+                                propInfo.SetValue(oSettings, oFontConverter.ConvertToString(selectedFont));
+                            }
+                            else
+                            {
+                                // Unknown property type - attempt to set via indexer
+                                oSettings["TextFont"] = selectedFont;
+                            }
+                        }
+                        else
+                        {
+                            // No strong-typed property found - attempt indexer, falling back to string
+                            try
+                            {
+                                oSettings["TextFont"] = selectedFont;
+                            }
+                            catch
+                            {
+                                try
+                                {
+                                    oSettings["TextFont"] = oFontConverter.ConvertToString(selectedFont);
+                                }
+                                catch
+                                {
+                                    // swallow - cannot persist font
+                                }
+                            }
+                        }
+
+                        // Persist settings
+                        try
+                        {
+                            oSettings.Save();
+                            SetFont();
+                        }
+                        catch
+                        {
+                            // ignore save errors
+                        }
+                    }
+                    catch
+                    {
+                        // ignore all reflection/assignment errors to avoid crashes
+                    }
+                }
+            }
+
+        }
+
+        //===================================================================================================
+        /// <summary>
+        // Pseudocode / Plan:
+        // 1. Obtain settings instance: Properties.Settings.Default.
+        // 2. Attempt to read stored value for "TextFont" via indexer in a safe try/catch.
+        // 3. Prepare a System.Drawing.FontConverter for converting string representations.
+        // 4. Resolve initial font in this order:
+        //    a) If stored value is a System.Drawing.Font, use it.
+        //    b) Else if stored value is a non-empty string, try ConvertFromString to a Font.
+        //    c) Else attempt to select the requested fallback font "Cambia" (exact name) at 14.25pt Regular
+        //       but only if that font family is installed (check System.Drawing.FontFamily.Families).
+        //    d) If "Cambia" is not available, and the platform is non-Windows (Linux/macOS), try a list of
+        //       common serif fonts available on Linux: "DejaVu Serif", "Liberation Serif", "Times New Roman", "Serif".
+        //    e) If none of the above succeed, do not change the existing font (leave the textbox as-is).
+        // 5. Apply the resolved font to m_tbxCurrentTextCommunity.Font if a font has been resolved.
+        // 6. Wrap all steps in try/catch to avoid throwing exceptions (fail silently).
+        //
+        // Notes:
+        // - Use fully-qualified System.Drawing types to avoid adding new using directives.
+        // - Keep the size at 14.25f as requested.
+        // - Do not persist settings here; this method only reads/applies the font.
+        /// </summary>
+        //===================================================================================================
+        private void SetFont()
+        {
+            try
+            {
+                var oSettings = Properties.Settings.Default;
+                var oFontConverter = new System.Drawing.FontConverter();
+
+                // Try to read the stored setting safely
+                object? oStored = null;
+                try
+                {
+                    oStored = oSettings["TextFont"];
+                }
+                catch
+                {
+                    oStored = null;
+                }
+
+                System.Drawing.Font? oResolvedFont = null;
+
+                // 1) If stored is already a Font, use it
+                if (oStored is System.Drawing.Font oStoredFont)
+                {
+                    oResolvedFont = oStoredFont;
+                }
+                else
+                // 2) If stored is a string, try to convert it
+                if (oStored is string strStored && !string.IsNullOrWhiteSpace(strStored))
+                {
+                    try
+                    {
+                        var oConvertedFont = oFontConverter.ConvertFromString(strStored);
+                        if (oConvertedFont is System.Drawing.Font oFont)
+                            oResolvedFont = oFont;
+                    }
+                    catch
+                    {
+                        oResolvedFont = null;
+                    }
+                }
+
+                // 3) If still null, try the requested default "Cambia" at 14.25pt (only if installed)
+                if (oResolvedFont == null)
+                {
+                    string[] astrPreferredFontNames = new[] { "Segoe UI" }; // requested exact name
+                    var aFamilies = System.Drawing.FontFamily.Families;
+
+                    foreach (string strCandidate in astrPreferredFontNames)
+                    {
+                        try
+                        {
+                            if (aFamilies.Any(ff => string.Equals(
+                                ff.Name, strCandidate, StringComparison.OrdinalIgnoreCase)))
+                            {
+                                oResolvedFont = new System.Drawing.Font(
+                                    strCandidate, 14.25f, System.Drawing.FontStyle.Regular);
+                                break;
+                            }
+                        }
+                        catch
+                        {
+                            // ignore and try next
+                        }
+                    }
+                }
+
+                // 4) Platform-specific fallback: try common serif fonts (useful on Linux)
+                if (oResolvedFont == null)
+                {
+                    // Only attempt additional fallbacks when not on Windows (user asked to try a serif on Linux)
+                    if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        string[] astrLinuxSerifs = new[] {
+                            "DejaVu Serif", "Liberation Serif", "Times New Roman", "Serif" };
+
+                        var families = System.Drawing.FontFamily.Families;
+
+                        foreach (string strCandidate in astrLinuxSerifs)
+                        {
+                            try
+                            {
+                                if (families.Any(ff => string.Equals(
+                                    ff.Name, strCandidate, StringComparison.OrdinalIgnoreCase)))
+                                {
+                                    oResolvedFont = new System.Drawing.Font(
+                                        strCandidate, 14.25f, System.Drawing.FontStyle.Regular);
+                                    break;
+                                }
+                            }
+                            catch
+                            {
+                                // ignore and try next
+                            }
+                        }
+                    }
+                }
+
+                // 5) Apply resolved font if available; otherwise leave textbox font unchanged
+                if (oResolvedFont != null)
+                {
+                    m_tbxCurrentTextCommunity.Font = oResolvedFont;
+                    m_tbxNextBestTextCommunity.Font = oResolvedFont;
+                    m_tbxNextWorseTextCommunity.Font = oResolvedFont;
+                    m_tbxTextCommunity.Font = oResolvedFont;
+                }
+            }
+            catch
+            {
+                // ignore
+            }
+        }
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when the total text for the category changes
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnTextCommunity_TextChanged(object oSender, EventArgs oArgs)
+        {
+            m_oSectionTexts[m_strCurrentSection] = m_tbxTextCommunity.Text;
+        }
+
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when user wants to switch to next pupil
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
+        private void OnNextToolStripMenuItem_Click(object oSender, EventArgs oArgs)
+        {
+            m_oSectionTexts = new Dictionary<string, string>();
+            m_tbxName.Text = string.Empty;
+            m_tbxTextCommunity.Text = string.Empty;
+            m_ctlReportParts.SelectedIndex = 0;
+            m_ctlUpDownPoints.Value = 0;
+        }
     }
+
 }
