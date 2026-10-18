@@ -101,6 +101,10 @@
         ...
     &lt;/point>
   &lt;/section>
+  &lt;gender-replacements>
+    &lt;gender-replacement strGenderIndependent="beau/belle" strMaleForm="beau" strFemaleForm="belle">
+        ...
+  &lt;/gender-replacement>
 &lt;/school-report-texts></pre>
         <h3>Root Element</h3>
         <p><bdo lang="" translate="no">&lt;school-report-texts></bdo> The container for all report sections.</p>
@@ -118,7 +122,14 @@
         <p>Each <bdo lang="" translate="no">&lt;assessment></bdo> provides a prewritten evaluation text for a student's behavior in that category. Assessments can have following attributes:</p>
         <ul>
             <li><bdo lang="" translate="no">nId</bdo>: A numeric identifier for the assessment (optional)</li>
-            <li><bdo lang="" translate="no">strText</bdo> The actual evaluation text describing the student's evaluation in the given category. This attribute is mandatory.</li>
+            <li><bdo lang="" translate="no">strText</bdo>: The actual evaluation text describing the student's evaluation in the given category. This attribute is mandatory.</li>
+        </ul>
+        <h3>Gender replacements</h3>
+        <p>Each <bdo lang="" translate="no">&lt;gender-replacement></bdo> provides a prewritten gendering replacement for adjectives or verbs in languages that require this:</p>
+        <ul>
+            <li><bdo lang="" translate="no">strGenderIndependent</bdo>: Contains gender-independent form that is to be replaced by male or female variants.</li>
+            <li><bdo lang="" translate="no">strMaleForm</bdo>: Contains male form that will be inserted instead of gender independent.</li>
+            <li><bdo lang="" translate="no">strFemaleForm</bdo>: Contains female form that will be inserted instead of gender independent.</li>
         </ul>
     </div>
 </body>
