@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>Warbixinta dugsiga / qoraallada qiimaynta </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>Dooro farta</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>Xiga</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

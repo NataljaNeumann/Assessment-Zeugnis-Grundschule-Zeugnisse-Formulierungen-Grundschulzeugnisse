@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>Mokyklos ataskaita / vertinimo tekstai </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>Pasirinkite šriftą</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>Toliau</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

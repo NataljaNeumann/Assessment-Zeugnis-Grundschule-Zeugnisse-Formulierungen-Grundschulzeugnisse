@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>Школьны справаздачу / тэксты ацэнкі </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>Выберыце шрыфт</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>Далей</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

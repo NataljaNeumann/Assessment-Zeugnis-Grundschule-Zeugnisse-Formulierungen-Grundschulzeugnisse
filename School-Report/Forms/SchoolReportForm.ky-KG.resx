@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>Мектеп отчету / Баалоо тексттери </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>Арипти тандаңыз</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>Кийинки</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>Šolsko poročilo / Besedila za ocenjevanje </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>Izberite pisavo</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>Naprej</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

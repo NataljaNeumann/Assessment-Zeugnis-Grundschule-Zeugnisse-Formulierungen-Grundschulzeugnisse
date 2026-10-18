@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>སློབ་གྲྭའི་སྙན་ཞུ། དཔྱད་ཞིབ་ཡིག་ཆ། </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>ཡིག་གཟུགས་འདེམས།</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>རྗེས་མ</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

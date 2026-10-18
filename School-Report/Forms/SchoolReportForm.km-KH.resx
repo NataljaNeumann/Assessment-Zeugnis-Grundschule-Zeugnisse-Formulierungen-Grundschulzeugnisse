@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>របាយការណ៍សាលា / អត្ថបទវាយតម្លៃ </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>ជ្រើសរើសពុម្ពអក្សរ</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>បន្ទាប់</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>سکول دی رپورٹ / تشخیصی متن </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>فونٹ چنو</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>اگلا</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

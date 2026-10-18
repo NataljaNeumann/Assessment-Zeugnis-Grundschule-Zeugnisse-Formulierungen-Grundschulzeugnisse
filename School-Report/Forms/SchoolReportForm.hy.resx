@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>Դպրոցական հաշվետվություն / Գնահատման տեքստեր </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>Ընտրեք տառատեսակը</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>Հաջորդը</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

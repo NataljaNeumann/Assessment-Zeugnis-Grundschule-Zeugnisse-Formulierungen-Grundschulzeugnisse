@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>گزارش مدرسه / متون ارزیابی </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>انتخاب فونت</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>بعدی</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

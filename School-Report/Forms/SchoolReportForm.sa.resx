@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>विद्यालय प्रतिवेदन / मूल्याङ्कन ग्रन्थ </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>फन्ट् चयनं कुर्वन्तु</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>अग्रिम</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>

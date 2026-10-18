@@ -196,4 +196,13 @@
   <data xml:space="preserve" name="$this.Text">
     <value>Mekdep hasabaty / Bahalandyryş tekstleri </value>
   </data>
+  <data xml:space="preserve" name="m_oSelectFontToolStripMenuItem.Text">
+    <value>Şrift saýlaň</value>
+  </data>
+  <data xml:space="preserve" name="m_oNextToolStripMenuItem.Text">
+    <value>Indiki</value>
+  </data>
+  <data xml:space="preserve" name="m_btnCopyFullText.Text">
+    <value>⧉</value>
+  </data>
 </root>
