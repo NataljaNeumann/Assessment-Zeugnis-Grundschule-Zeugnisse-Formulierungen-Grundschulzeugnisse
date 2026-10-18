@@ -358,7 +358,8 @@ namespace School_Report
             Dictionary<int, int> oTextFrequencies,
             Dictionary<(int, int), int> oTextCoOccurrences,
             List<GenderReplacement> oGenderReplacements,
-            string strXmlPath)
+            string strXmlPath
+            )
         {
             XElement oRoot = new XElement("school-report-texts");
 
@@ -437,6 +438,14 @@ namespace School_Report
             }
         }
 
+
+        //===================================================================================================
+        /// <summary>
+        /// This is executed when the selected tab changes
+        /// </summary>
+        /// <param name="oSender">Sender object</param>
+        /// <param name="oArgs">Event args</param>
+        //===================================================================================================
         private void m_ctlReportParts_SelectedIndexChanged(object oSender, EventArgs oArgs)
         {
             if (m_ctlReportParts.SelectedTab != null)
@@ -457,13 +466,22 @@ namespace School_Report
             }
         }
 
+        //===================================================================================================
+        /// <summary>
+        /// Inits current point
+        /// </summary>
+        //===================================================================================================
         private void InitCurrentPoint()
         {
             m_nCurrentValueIndex = 0;
             ShowCurrentPoint();
         }
 
-
+        //===================================================================================================
+        /// <summary>
+        /// Shows current point
+        /// </summary>
+        //===================================================================================================
         private void ShowCurrentPoint()
         {
             string[] astrPoints = m_oTexts[m_strCurrentSection].Keys.ToArray();
