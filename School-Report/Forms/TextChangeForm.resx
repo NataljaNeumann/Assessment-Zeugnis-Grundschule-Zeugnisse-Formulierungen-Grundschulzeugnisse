@@ -249,6 +249,54 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
   </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        D5em/hxOmoI+AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>New Assessment or Assessment Correction</value>
   </data>
