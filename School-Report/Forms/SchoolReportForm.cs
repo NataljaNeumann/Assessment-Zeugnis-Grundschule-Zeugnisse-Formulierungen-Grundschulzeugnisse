@@ -5571,27 +5571,27 @@ namespace School_Report
 
                 if (m_oFontDialog.ShowDialog(this) == DialogResult.OK)
                 {
-                    var selectedFont = m_oFontDialog.Font ?? oInitialFont;
+                    var oSelectedFont = m_oFontDialog.Font ?? oInitialFont;
 
                     // Try strong-typed property first using reflection
                     try
                     {
-                        var settingsType = oSettings.GetType();
-                        var propInfo = settingsType.GetProperty("TextFont");
-                        if (propInfo != null && propInfo.CanWrite)
+                        var oSettingsType = oSettings.GetType();
+                        var oPropInfo = oSettingsType.GetProperty("TextFont");
+                        if (oPropInfo != null && oPropInfo.CanWrite)
                         {
-                            if (propInfo.PropertyType == typeof(System.Drawing.Font))
+                            if (oPropInfo.PropertyType == typeof(System.Drawing.Font))
                             {
-                                propInfo.SetValue(oSettings, selectedFont);
+                                oPropInfo.SetValue(oSettings, oSelectedFont);
                             }
-                            else if (propInfo.PropertyType == typeof(string))
+                            else if (oPropInfo.PropertyType == typeof(string))
                             {
-                                propInfo.SetValue(oSettings, oFontConverter.ConvertToString(selectedFont));
+                                oPropInfo.SetValue(oSettings, oFontConverter.ConvertToString(oSelectedFont));
                             }
                             else
                             {
                                 // Unknown property type - attempt to set via indexer
-                                oSettings["TextFont"] = selectedFont;
+                                oSettings["TextFont"] = oSelectedFont;
                             }
                         }
                         else
@@ -5599,13 +5599,13 @@ namespace School_Report
                             // No strong-typed property found - attempt indexer, falling back to string
                             try
                             {
-                                oSettings["TextFont"] = selectedFont;
+                                oSettings["TextFont"] = oSelectedFont;
                             }
                             catch
                             {
                                 try
                                 {
-                                    oSettings["TextFont"] = oFontConverter.ConvertToString(selectedFont);
+                                    oSettings["TextFont"] = oFontConverter.ConvertToString(oSelectedFont);
                                 }
                                 catch
                                 {
@@ -5698,7 +5698,7 @@ namespace School_Report
                     }
                 }
 
-                // 3) If still null, try the requested default "Cambia" at 14.25pt (only if installed)
+                // 3) If still null, try the requested default "Segoe UI" at 14.25pt (only if installed)
                 if (oResolvedFont == null)
                 {
                     string[] astrPreferredFontNames = new[] { "Segoe UI" }; // requested exact name
