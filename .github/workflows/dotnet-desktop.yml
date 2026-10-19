@@ -200,12 +200,12 @@ jobs:
 
       - name: Sign executable with PFX
         run: |
-          & signtool.exe sign /f ${{ env.APP_NAME }}/MyCert.pfx /p ${{ secrets.PFX_PASSWORD }} /tr http://timestamp.digicert.com /td sha256 /fd sha256 ${{ env.APP_NAME }}/bin/Release/net8.0/${{ env.APP_NAME }}.exe
+          & signtool.exe sign /f ${{ env.APP_NAME }}/MyCert.pfx /p ${{ secrets.PFX_PASSWORD }} /tr http://timestamp.digicert.com /td sha256 /fd sha256 ${{ env.APP_NAME }}/bin/Release/net8.0-windows/${{ env.APP_NAME }}.exe
           Remove-Item -Force -Verbose -ErrorAction SilentlyContinue "${{ env.APP_NAME }}/MyCert.pfx"
 
       - name: Pack the release with signed EXE
         run: |
-          cd ${{ env.APP_NAME }}/bin/Release/net8.0
+          cd ${{ env.APP_NAME }}/bin/Release/net8.0-windows
           Get-ChildItem -Path . -Include *.snk, *.pfx -Recurse -Force | Remove-Item -Force -ErrorAction SilentlyContinue
           Remove-Item -Force -ErrorAction SilentlyContinue "../../${{ env.APP_NAME }}_v${{ steps.increment.outputs.version }}.zip"
           tar.exe -a -c -f  ../../${{ env.APP_NAME }}_v${{ steps.increment.outputs.version }}.zip *.*
