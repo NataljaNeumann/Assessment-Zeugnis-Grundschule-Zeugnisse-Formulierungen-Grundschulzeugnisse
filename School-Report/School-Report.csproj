@@ -8,8 +8,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Title>School-Report</Title>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Version>$(AssemblyVersion)</Version>
     <Copyright>Copyright (c) 2025-2026 NataljaNeumann@gmx.de</Copyright>
