@@ -1,5 +1,5 @@
-﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
-  <Package Name="SchoolReport" Language="1033" Version="1.0.4.0" Manufacturer="NataljaNeumann@gmx.de" UpgradeCode="1A99AC81-901C-4279-B036-760E8F51E824" Scope="perMachine">
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="SchoolReport" Language="1033" Version="1.0.6.0" Manufacturer="NataljaNeumann@gmx.de" UpgradeCode="1A99AC81-901C-4279-B036-760E8F51E824" Scope="perMachine">
     <MajorUpgrade DowngradeErrorMessage="A newer version of SchoolReport has already been installed." />
     <MediaTemplate EmbedCab="yes" />
     <Directory Id="TARGETDIR" Name="SourceDir">
