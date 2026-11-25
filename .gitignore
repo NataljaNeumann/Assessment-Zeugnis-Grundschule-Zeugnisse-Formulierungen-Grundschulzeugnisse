@@ -1,7 +1,7 @@
-School-Report/obj/**
-School-Report/bin/Release/**
-School-Report/bin/Debug/**
-School-Report/bin/*.zip
+**/obj/**
+**/Release/**
+**/Debug/**
+**/bin/*.zip
 **/.vs/**
 Backup/**
 *.csv
