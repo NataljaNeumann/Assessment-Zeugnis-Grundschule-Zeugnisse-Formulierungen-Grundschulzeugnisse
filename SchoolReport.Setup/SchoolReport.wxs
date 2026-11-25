@@ -1,0 +1,331 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="SchoolReport" Language="1033" Version="1.0.4.0" Manufacturer="NataljaNeumann@gmx.de" UpgradeCode="1A99AC81-901C-4279-B036-760E8F51E824" Scope="perMachine">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of SchoolReport has already been installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="PublisherFolder" Name="NataljaNeumann">
+          <Directory Id="INSTALLFOLDER" Name="SchoolReport" />
+        </Directory>
+      </Directory>
+    </Directory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="WindowsMenuFolder" Name="SchoolReport" />
+    </StandardDirectory>
+    <StandardDirectory Id="DesktopFolder" />
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.SchoolReport.TargetDir)license.rtf" />
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="_" Guid="B428542B-4AA8-4D65-A70E-1B1E00020382">
+        <File Id="license_rtf" Source="$(var.SchoolReport.TargetDir)license.rtf" />
+        <File Id="license_txt" Source="$(var.SchoolReport.TargetDir)license.txt" />
+        <File Id="Public_crt" Source="$(var.SchoolReport.TargetDir)Public.crt" />
+        <File Id="SchoolReport_deps_json" Source="$(var.SchoolReport.TargetDir)SchoolReport.deps.json" />
+        <File Id="SchoolReport_dll" Source="$(var.SchoolReport.TargetDir)SchoolReport.dll" />
+        <File Id="SchoolReport_exe" Source="$(var.SchoolReport.TargetDir)SchoolReport.exe" KeyPath="yes" />
+        <File Id="SchoolReport_runtimeconfig_json" Source="$(var.SchoolReport.TargetDir)SchoolReport.runtimeconfig.json" />
+        <File Id="source_code_tar_zip" Source="$(var.SchoolReport.TargetDir)source_code.tar.zip" />
+      </Component>
+      <Component Id="af" Guid="D82EAD73-357D-4243-BE2F-8986A296C9AD" Subdirectory="af">
+        <File Id="af_resources_dll" Source="$(var.SchoolReport.TargetDir)af\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="amET" Guid="64E70582-079A-4953-929D-0629F12DFC44" Subdirectory="am-ET">
+        <File Id="amET_resources_dll" Source="$(var.SchoolReport.TargetDir)am-ET\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ar" Guid="973C885E-6254-4D03-95BD-5958B4340868" Subdirectory="ar">
+        <File Id="ar_resources_dll" Source="$(var.SchoolReport.TargetDir)ar\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="az" Guid="F90555DF-B8B4-47F1-8E54-7AF21C241E78" Subdirectory="az">
+        <File Id="az_resources_dll" Source="$(var.SchoolReport.TargetDir)az\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="be" Guid="5B7CEACA-F58D-4AAB-897A-4589906EF1CB" Subdirectory="be">
+        <File Id="be_resources_dll" Source="$(var.SchoolReport.TargetDir)be\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="beBY" Guid="86DCC7BB-B355-48EC-90E4-990B41154DE8" Subdirectory="be-BY">
+        <File Id="beBY_resources_dll" Source="$(var.SchoolReport.TargetDir)be-BY\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="bg" Guid="867D09D9-6913-4720-84F8-51B1ECBC4B06" Subdirectory="bg">
+        <File Id="bg_resources_dll" Source="$(var.SchoolReport.TargetDir)bg\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="boCN" Guid="C9CD7CF3-52C4-4E77-9FDC-7CAE5DD5DA8C" Subdirectory="bo-CN">
+        <File Id="boCN_resources_dll" Source="$(var.SchoolReport.TargetDir)bo-CN\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="bsLatnBA" Guid="CF076FE2-B250-48D0-8551-25AE0AF87401" Subdirectory="bs-Latn-BA">
+        <File Id="bsLatnBA_resources_dll" Source="$(var.SchoolReport.TargetDir)bs-Latn-BA\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ca" Guid="B3B0BAF1-DEAF-48E5-9994-A893858F0A35" Subdirectory="ca">
+        <File Id="ca_resources_dll" Source="$(var.SchoolReport.TargetDir)ca\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="cs" Guid="A95450C7-279E-4324-A48B-636511F1A148" Subdirectory="cs">
+        <File Id="cs_resources_dll" Source="$(var.SchoolReport.TargetDir)cs\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="da" Guid="42DC5CD5-2179-497E-83D1-A7089075F374" Subdirectory="da">
+        <File Id="da_resources_dll" Source="$(var.SchoolReport.TargetDir)da\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="de" Guid="CE4EB5EF-A2BD-46F4-9C22-955C735AD5D6" Subdirectory="de">
+        <File Id="de_resources_dll" Source="$(var.SchoolReport.TargetDir)de\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="el" Guid="4EB99C60-767F-4FB6-BEC0-78DAD4AF27D8" Subdirectory="el">
+        <File Id="el_resources_dll" Source="$(var.SchoolReport.TargetDir)el\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="es" Guid="95960134-CF37-4EFA-B5C4-1447651FF344" Subdirectory="es">
+        <File Id="es_resources_dll" Source="$(var.SchoolReport.TargetDir)es\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="et" Guid="244F4CED-1284-4097-93A5-C5345741ABAE" Subdirectory="et">
+        <File Id="et_resources_dll" Source="$(var.SchoolReport.TargetDir)et\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="fa" Guid="D5DFFD37-5ABE-48B6-AECA-2AB6DAC282A0" Subdirectory="fa">
+        <File Id="fa_resources_dll" Source="$(var.SchoolReport.TargetDir)fa\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="fi" Guid="6203975C-1FBD-4ACF-943B-E3C05B4E12EE" Subdirectory="fi">
+        <File Id="fi_resources_dll" Source="$(var.SchoolReport.TargetDir)fi\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="fr" Guid="DFC916F3-4588-46BA-8337-8E1CBF6C2B42" Subdirectory="fr">
+        <File Id="fr_resources_dll" Source="$(var.SchoolReport.TargetDir)fr\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="gaIE" Guid="E45F8155-07E2-4B20-B294-107A5DAB8077" Subdirectory="ga-IE">
+        <File Id="gaIE_resources_dll" Source="$(var.SchoolReport.TargetDir)ga-IE\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="he" Guid="CA377E9D-7699-4227-8C2A-B51C2D2D3D29" Subdirectory="he">
+        <File Id="he_resources_dll" Source="$(var.SchoolReport.TargetDir)he\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="hi" Guid="54A07952-EE27-427E-A3D4-D2479AF9293C" Subdirectory="hi">
+        <File Id="hi_resources_dll" Source="$(var.SchoolReport.TargetDir)hi\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="hr" Guid="746D5FCC-CF0A-4661-9BCB-91FE628F9154" Subdirectory="hr">
+        <File Id="hr_resources_dll" Source="$(var.SchoolReport.TargetDir)hr\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="hu" Guid="5E890CAA-F981-42D9-81F9-B542CC55EA56" Subdirectory="hu">
+        <File Id="hu_resources_dll" Source="$(var.SchoolReport.TargetDir)hu\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="hy" Guid="0E47A7A4-B645-4870-9B2E-03D8FC77C9A4" Subdirectory="hy">
+        <File Id="hy_resources_dll" Source="$(var.SchoolReport.TargetDir)hy\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="id" Guid="294524AC-A4E9-4B0A-8BED-3BA952F90F0B" Subdirectory="id">
+        <File Id="id_resources_dll" Source="$(var.SchoolReport.TargetDir)id\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="idID" Guid="795BD7D5-D92A-4A91-B9ED-853E867B4C38" Subdirectory="id-ID">
+        <File Id="idID_resources_dll" Source="$(var.SchoolReport.TargetDir)id-ID\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="igNG" Guid="B6AFA41B-189D-4FC8-9E98-4EE854E786A9" Subdirectory="ig-NG">
+        <File Id="igNG_resources_dll" Source="$(var.SchoolReport.TargetDir)ig-NG\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="is" Guid="2625BD65-16BF-4B91-A7BE-BA98946C5DF5" Subdirectory="is">
+        <File Id="is_resources_dll" Source="$(var.SchoolReport.TargetDir)is\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="it" Guid="CC2C130F-5BA4-4397-883C-5862A9C51336" Subdirectory="it">
+        <File Id="it_resources_dll" Source="$(var.SchoolReport.TargetDir)it\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ja" Guid="BC2B04E7-F3FD-4FD5-B286-609CEEB549F3" Subdirectory="ja">
+        <File Id="ja_resources_dll" Source="$(var.SchoolReport.TargetDir)ja\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ka" Guid="C9428907-8D4E-41FE-9802-C6DC0ED9E192" Subdirectory="ka">
+        <File Id="ka_resources_dll" Source="$(var.SchoolReport.TargetDir)ka\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="kk" Guid="E18AC0F5-59B6-4972-8DA2-0765D38CBD17" Subdirectory="kk">
+        <File Id="kk_resources_dll" Source="$(var.SchoolReport.TargetDir)kk\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="kmKH" Guid="A5EDD72E-6AB5-4E49-84E2-D950EA0E09DA" Subdirectory="km-KH">
+        <File Id="kmKH_resources_dll" Source="$(var.SchoolReport.TargetDir)km-KH\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ko" Guid="BA9431C0-3635-4A04-8082-6BA7A4AE2F8F" Subdirectory="ko">
+        <File Id="ko_resources_dll" Source="$(var.SchoolReport.TargetDir)ko\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="kuArabIQ" Guid="B2F565BE-B3D6-4CF4-922B-0CF0C639565D" Subdirectory="ku-Arab-IQ">
+        <File Id="kuArabIQ_resources_dll" Source="$(var.SchoolReport.TargetDir)ku-Arab-IQ\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="kyKG" Guid="2D441518-A81E-4131-A3CF-4CFE88B88886" Subdirectory="ky-KG">
+        <File Id="kyKG_resources_dll" Source="$(var.SchoolReport.TargetDir)ky-KG\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="la" Guid="9EA9ED94-ACAD-4948-B55B-9F2E39B382EA" Subdirectory="la">
+        <File Id="la_resources_dll" Source="$(var.SchoolReport.TargetDir)la\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="lt" Guid="8F6E7C0E-D948-447D-BE08-E4D3582C12E3" Subdirectory="lt">
+        <File Id="lt_resources_dll" Source="$(var.SchoolReport.TargetDir)lt\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="lv" Guid="F70CDDA3-4129-492E-9833-DBB848318527" Subdirectory="lv">
+        <File Id="lv_resources_dll" Source="$(var.SchoolReport.TargetDir)lv\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="mk" Guid="B5B01F45-4F32-421F-B34F-B217D0FBC209" Subdirectory="mk">
+        <File Id="mk_resources_dll" Source="$(var.SchoolReport.TargetDir)mk\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="mnMN" Guid="044CF9F0-17B4-4242-961E-1BDDD5090F7D" Subdirectory="mn-MN">
+        <File Id="mnMN_resources_dll" Source="$(var.SchoolReport.TargetDir)mn-MN\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ms" Guid="5CEF5178-C317-4AAD-A6B0-9AEFDBF0F7B6" Subdirectory="ms">
+        <File Id="ms_resources_dll" Source="$(var.SchoolReport.TargetDir)ms\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="nl" Guid="45AFA4CB-BE71-4655-914A-297B42B7053B" Subdirectory="nl">
+        <File Id="nl_resources_dll" Source="$(var.SchoolReport.TargetDir)nl\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="no" Guid="83362B9B-78BE-4669-BC2D-7DCED2382F2A" Subdirectory="no">
+        <File Id="no_resources_dll" Source="$(var.SchoolReport.TargetDir)no\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="paArabPK" Guid="03449E5B-F5CC-4A8D-8BD5-8E5DB0849EB7" Subdirectory="pa-Arab-PK">
+        <File Id="paArabPK_resources_dll" Source="$(var.SchoolReport.TargetDir)pa-Arab-PK\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="paIN" Guid="9C7887FA-9687-4A76-ABED-2FB9CDE44A1E" Subdirectory="pa-IN">
+        <File Id="paIN_resources_dll" Source="$(var.SchoolReport.TargetDir)pa-IN\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="pl" Guid="D9CE0B98-E7AB-48B7-B225-2819DC97AA4F" Subdirectory="pl">
+        <File Id="pl_resources_dll" Source="$(var.SchoolReport.TargetDir)pl\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="psAF" Guid="1BF32A2D-0C35-4A4E-A6C7-615673CA930A" Subdirectory="ps-AF">
+        <File Id="psAF_resources_dll" Source="$(var.SchoolReport.TargetDir)ps-AF\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="pt" Guid="338DBCB5-EAE3-494C-9C24-533A508E229E" Subdirectory="pt">
+        <File Id="pt_resources_dll" Source="$(var.SchoolReport.TargetDir)pt\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ro" Guid="CD17CC46-955D-4374-AB43-8608B057B042" Subdirectory="ro">
+        <File Id="ro_resources_dll" Source="$(var.SchoolReport.TargetDir)ro\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="ru" Guid="9998CBCD-C132-4DFE-AF34-BEA07CC1E012" Subdirectory="ru">
+        <File Id="ru_resources_dll" Source="$(var.SchoolReport.TargetDir)ru\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="rwRW" Guid="5405810D-3E5C-42CB-A393-027216B14266" Subdirectory="rw-RW">
+        <File Id="rwRW_resources_dll" Source="$(var.SchoolReport.TargetDir)rw-RW\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="sa" Guid="E01B9D2F-714E-4413-AC6D-BE37E5EE1306" Subdirectory="sa">
+        <File Id="sa_resources_dll" Source="$(var.SchoolReport.TargetDir)sa\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="sk" Guid="0FFF3744-2924-42BF-8BA6-5E4C986FDCC7" Subdirectory="sk">
+        <File Id="sk_resources_dll" Source="$(var.SchoolReport.TargetDir)sk\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="sl" Guid="BE58307A-78F8-4CBF-A531-83293A94BC4F" Subdirectory="sl">
+        <File Id="sl_resources_dll" Source="$(var.SchoolReport.TargetDir)sl\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="soSO" Guid="51DB8831-0DD6-4C6C-A88F-9E13D2BA0C11" Subdirectory="so-SO">
+        <File Id="soSO_resources_dll" Source="$(var.SchoolReport.TargetDir)so-SO\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="sr" Guid="2ED12533-7004-43C0-BEFF-E4AAE5423C38" Subdirectory="sr">
+        <File Id="sr_resources_dll" Source="$(var.SchoolReport.TargetDir)sr\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="sv" Guid="0F2F8C10-24B9-44FD-80D1-8ED08F07EF2F" Subdirectory="sv">
+        <File Id="sv_resources_dll" Source="$(var.SchoolReport.TargetDir)sv\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="tgCyrlTJ" Guid="5409A1F1-37FE-4B8B-B3E9-528947050AF6" Subdirectory="tg-Cyrl-TJ">
+        <File Id="tgCyrlTJ_resources_dll" Source="$(var.SchoolReport.TargetDir)tg-Cyrl-TJ\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="th" Guid="1AC26DCF-4F10-4738-A458-77952B43ED26" Subdirectory="th">
+        <File Id="th_resources_dll" Source="$(var.SchoolReport.TargetDir)th\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="tiER" Guid="710BAC7E-242A-43EA-985E-53E412E2E2AE" Subdirectory="ti-ER">
+        <File Id="tiER_resources_dll" Source="$(var.SchoolReport.TargetDir)ti-ER\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="tiET" Guid="6A9A7ADE-2239-4041-85A0-14E73BFE00D3" Subdirectory="ti-ET">
+        <File Id="tiET_resources_dll" Source="$(var.SchoolReport.TargetDir)ti-ET\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="tkTM" Guid="052EB971-AA30-42B8-BEE9-DA27FD8FCA23" Subdirectory="tk-TM">
+        <File Id="tkTM_resources_dll" Source="$(var.SchoolReport.TargetDir)tk-TM\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="tr" Guid="D61E7FB7-0CF8-4F6E-BC25-C5C35ED2D69F" Subdirectory="tr">
+        <File Id="tr_resources_dll" Source="$(var.SchoolReport.TargetDir)tr\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="uk" Guid="B73AF8E1-61B9-486F-90B3-BDD97D2C7B53" Subdirectory="uk">
+        <File Id="uk_resources_dll" Source="$(var.SchoolReport.TargetDir)uk\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="uz" Guid="4C8362DC-1181-46B4-A37E-3E8612992D04" Subdirectory="uz">
+        <File Id="uz_resources_dll" Source="$(var.SchoolReport.TargetDir)uz\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="vi" Guid="2F1EFAD9-B8F9-4966-B06E-7F1806C7D4E3" Subdirectory="vi">
+        <File Id="vi_resources_dll" Source="$(var.SchoolReport.TargetDir)vi\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="woSN" Guid="85A59D78-02CE-46CF-86ED-8ADFCDE6B898" Subdirectory="wo-SN">
+        <File Id="woSN_resources_dll" Source="$(var.SchoolReport.TargetDir)wo-SN\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="yoNG" Guid="9328FC27-EDE8-4B8B-BF63-E9133A46C3FD" Subdirectory="yo-NG">
+        <File Id="yoNG_resources_dll" Source="$(var.SchoolReport.TargetDir)yo-NG\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="zhCHS" Guid="D2E5DC0B-24C1-4B5C-B40C-939806A73798" Subdirectory="zh-CHS">
+        <File Id="zhCHS_resources_dll" Source="$(var.SchoolReport.TargetDir)zh-CHS\SchoolReport.resources.dll" />
+      </Component>
+      <Component Id="zhCHT" Guid="C42002CA-1EE3-4B99-AF88-4D7A4D12A2AD" Subdirectory="zh-CHT">
+        <File Id="zhCHT_resources_dll" Source="$(var.SchoolReport.TargetDir)zh-CHT\SchoolReport.resources.dll" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="WindowsMenuFolder">
+      <Component Id="WindowsMenuShortcuts" Guid="E6617F85-7199-41A4-9B83-34291D0380F7">
+        <RemoveFolder Id="RemoveWindowsMenuFolder" Directory="WindowsMenuFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\NataljaNeumann\SchoolReport" Name="Installed" Type="integer" Value="1" KeyPath="yes" />
+        <Shortcut Id="SchoolReport_exe_pfx" Directory="WindowsMenuFolder" Name="School Report" Target="[INSTALLFOLDER]SchoolReport.exe" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="SchoolReport_exe_2_pfx" Directory="DesktopFolder" Name="School Report" Target="[INSTALLFOLDER]SchoolReport.exe" WorkingDirectory="INSTALLFOLDER" />
+      </Component>
+    </DirectoryRef>
+    <Feature Id="SchoolReport" Title="SchoolReport" Level="1">
+      <ComponentRef Id="WindowsMenuShortcuts" />
+      <ComponentRef Id="_" />
+      <ComponentRef Id="af" />
+      <ComponentRef Id="amET" />
+      <ComponentRef Id="ar" />
+      <ComponentRef Id="az" />
+      <ComponentRef Id="be" />
+      <ComponentRef Id="beBY" />
+      <ComponentRef Id="bg" />
+      <ComponentRef Id="boCN" />
+      <ComponentRef Id="bsLatnBA" />
+      <ComponentRef Id="ca" />
+      <ComponentRef Id="cs" />
+      <ComponentRef Id="da" />
+      <ComponentRef Id="de" />
+      <ComponentRef Id="el" />
+      <ComponentRef Id="es" />
+      <ComponentRef Id="et" />
+      <ComponentRef Id="fa" />
+      <ComponentRef Id="fi" />
+      <ComponentRef Id="fr" />
+      <ComponentRef Id="gaIE" />
+      <ComponentRef Id="he" />
+      <ComponentRef Id="hi" />
+      <ComponentRef Id="hr" />
+      <ComponentRef Id="hu" />
+      <ComponentRef Id="hy" />
+      <ComponentRef Id="id" />
+      <ComponentRef Id="idID" />
+      <ComponentRef Id="igNG" />
+      <ComponentRef Id="is" />
+      <ComponentRef Id="it" />
+      <ComponentRef Id="ja" />
+      <ComponentRef Id="ka" />
+      <ComponentRef Id="kk" />
+      <ComponentRef Id="kmKH" />
+      <ComponentRef Id="ko" />
+      <ComponentRef Id="kuArabIQ" />
+      <ComponentRef Id="kyKG" />
+      <ComponentRef Id="la" />
+      <ComponentRef Id="lt" />
+      <ComponentRef Id="lv" />
+      <ComponentRef Id="mk" />
+      <ComponentRef Id="mnMN" />
+      <ComponentRef Id="ms" />
+      <ComponentRef Id="nl" />
+      <ComponentRef Id="no" />
+      <ComponentRef Id="paArabPK" />
+      <ComponentRef Id="paIN" />
+      <ComponentRef Id="pl" />
+      <ComponentRef Id="psAF" />
+      <ComponentRef Id="pt" />
+      <ComponentRef Id="ro" />
+      <ComponentRef Id="ru" />
+      <ComponentRef Id="rwRW" />
+      <ComponentRef Id="sa" />
+      <ComponentRef Id="sk" />
+      <ComponentRef Id="sl" />
+      <ComponentRef Id="soSO" />
+      <ComponentRef Id="sr" />
+      <ComponentRef Id="sv" />
+      <ComponentRef Id="tgCyrlTJ" />
+      <ComponentRef Id="th" />
+      <ComponentRef Id="tiER" />
+      <ComponentRef Id="tiET" />
+      <ComponentRef Id="tkTM" />
+      <ComponentRef Id="tr" />
+      <ComponentRef Id="uk" />
+      <ComponentRef Id="uz" />
+      <ComponentRef Id="vi" />
+      <ComponentRef Id="woSN" />
+      <ComponentRef Id="yoNG" />
+      <ComponentRef Id="zhCHS" />
+      <ComponentRef Id="zhCHT" />
+    </Feature>
+  </Package>
+</Wix>
